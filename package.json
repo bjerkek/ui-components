@@ -2,7 +2,9 @@
   "name": "ui-components",
   "version": "1.0.0",
   "description": "UI components as Web Components",
-  "main": "index.js",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "sideEffects": false,
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "rollup -c",

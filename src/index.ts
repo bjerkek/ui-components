@@ -1,16 +1,7 @@
-const template = document.createElement('template')
+import HTMLTemplate from './template.html'
 
-template.innerHTML = `
-  <style>
-    .container {
-      padding: 8px;
-    }
-  </style>
- 
-  <div class="container">
-    <button>Label</button>
-  </div>
-`
+const template = document.createElement('template')
+template.innerHTML = HTMLTemplate
 
 class Button extends HTMLElement {
   #shadowRoot: ShadowRoot

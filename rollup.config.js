@@ -2,6 +2,7 @@ import babel from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
+import { string } from 'rollup-plugin-string'
 
 const dist = 'dist'
 const bundle = 'bundle'
@@ -31,6 +32,9 @@ export default {
     babel({
       exclude: 'node_modules/**',
       babelHelpers: 'runtime'
+    }),
+    string({
+      include: '**/*.html'
     }),
     production && terser()
   ]

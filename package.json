@@ -4,17 +4,35 @@
     "description": "UI components as Web Components",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "lint": "eslint '**/*.ts'",
+        "lint:fix": "prettier-eslint $PWD/'**/*.ts' --write"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/bjerkek/ui-components.git"
     },
-    "keywords": ["ui-components", "web-components"],
+    "keywords": [
+        "ui-components",
+        "web-components"
+    ],
     "author": "Bjerkek AS",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/bjerkek/ui-components/issues"
     },
-    "homepage": "https://github.com/bjerkek/ui-components#readme"
+    "homepage": "https://github.com/bjerkek/ui-components#readme",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.12.0",
+        "@typescript-eslint/parser": "^4.12.0",
+        "eslint": "^7.17.0",
+        "eslint-config-standard": "^16.0.2",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "prettier-eslint": "^12.0.0",
+        "prettier-eslint-cli": "^5.0.0"
+    },
+    "dependencies": {
+        "typescript": "^4.1.3"
+    }
 }

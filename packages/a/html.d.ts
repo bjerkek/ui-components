@@ -1,4 +1,5 @@
 declare module '*.html' {
-    const value: string
-    export default value
+  const value: string
+  /* @ts-ignore */
+  export default value
 }

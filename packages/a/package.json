@@ -1,0 +1,15 @@
+{
+  "name": "@ui-components/a",
+  "version": "0.0.1",
+  "description": "testing a package",
+  "main": "dist/a.umd.js",
+  "module": "dist/a.es.js",
+  "types": "todo",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:SpareBank1/designsystem.git"
+  },
+  "author": "Bjerkek AS",
+  "license": "MIT"
+}

@@ -3,7 +3,7 @@ import HTMLTemplate from './template.html'
 const template = document.createElement('template')
 template.innerHTML = HTMLTemplate
 
-class Button extends HTMLElement {
+export class ComponentB extends HTMLElement {
   #shadowRoot: ShadowRoot
 
   constructor () {
@@ -14,4 +14,4 @@ class Button extends HTMLElement {
   }
 }
 
-window.customElements.define('my-button', Button)
+window.customElements.define('component-b', ComponentB)

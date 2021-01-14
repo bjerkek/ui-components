@@ -1,0 +1,73 @@
+<style>
+  :host {
+    all: initial;
+    display: inline-block;
+  }
+
+  button {
+    box-sizing: border-box;
+    padding: 0.5rem 2.7rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    overflow: visible;
+    position: relative;
+    border: none;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 0.1rem solid var(--ui-border);
+    background-color: var(--ui-border);
+  }
+
+  button:focus {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 4px #a1dfff;
+  }
+
+  .loadingContainer {
+    position: absolute;
+    top: 0;
+    right: 0.8rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  svg {
+    height: 18px;
+    width: 18px;
+  }
+
+  .link {
+    background: transparent;
+    color: var(--ui-primary);
+  }
+
+  .primary {
+    background: var(--ui-primary);
+    border-color: var(--ui-primary);
+    color: #fff;
+  }
+
+  .danger {
+    background: var(--ui-error);
+    border-color: var(--ui-error);
+    color: #fff;
+  }
+
+  button:hover {
+    filter: brightness(90%);
+  }
+
+  button:active,
+  button:disabled {
+    filter: brightness(75%);
+  }
+</style>
+<button>
+  <span>
+    <slot></slot>
+  </span>
+</button>

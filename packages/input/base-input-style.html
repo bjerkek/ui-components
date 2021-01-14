@@ -1,0 +1,46 @@
+<style>
+  .base-input {
+    all: initial;
+
+    background-color: var(--ui-background);
+    box-sizing: border-box;
+
+    border: 0.1rem solid var(--ui-border);
+    padding: 0.5rem;
+    font-size: 0.9rem;
+
+    font-family: var(--ui-font-regular);
+    border-radius: 0.2rem;
+    outline: none;
+    width: 100%;
+    transition: all 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .base-input {
+      background-color: var(--ui-dark-background);
+      color: #fff;
+    }
+  }
+
+  .base-input.number {
+    font-family: var(--ui-font-monospace);
+  }
+
+  .base-input:focus {
+    border-color: var(--ui-primary);
+    box-shadow: 0 0 0 1px #fff, 0 0 0 4px var(--ui-focus);
+  }
+
+  .base-input:hover {
+    border-color: var(--ui-primary);
+  }
+
+  .base-input.error {
+    border-color: var(--ui-error);
+  }
+
+  .base-input.error:focus {
+    border-color: var(--ui-error);
+  }
+</style>

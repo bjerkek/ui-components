@@ -12,7 +12,7 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "sourceMap": false,
-    "inlineSources": false,
+    "inlineSources": false
   },
   "include": ["**/*.ts"]
 }

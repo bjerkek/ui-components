@@ -1,7 +1,7 @@
 {
-  "name": "@ui-components/b",
+  "name": "@ui-components/button",
   "version": "0.0.1",
-  "description": "testing a package",
+  "description": "TODO",
   "main": "dist/bundle.umd.js",
   "module": "dist/bundle.es.js",
   "types": "todo",

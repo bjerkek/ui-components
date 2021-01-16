@@ -19,22 +19,26 @@ export default {
   output: [
     {
       file: `${dist}/${bundle}.cjs.js`,
-      format: 'cjs'
+      format: 'cjs',
+      sourcemap: true
     },
     {
       file: `${dist}/${bundle}.esm.js`,
-      format: 'esm'
+      format: 'esm',
+      sourcemap: true
     },
     {
       name: LERNA_PACKAGE_NAME,
       file: `${dist}/${bundle}.umd.js`,
-      format: 'umd'
+      format: 'umd',
+      sourcemap: true
     }
   ],
   plugins: [
     resolve(),
     typescript({
-      tsconfig: `${LERNA_ROOT_PATH}/tsconfig.json`
+      tsconfig: `${LERNA_ROOT_PATH}/tsconfig.json`,
+      sourceMap: true
     }),
     babel({
       exclude: 'node_modules/**',

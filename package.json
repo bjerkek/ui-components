@@ -59,6 +59,9 @@
     "typescript": "4.1.3"
   },
   "jest": {
+    "modulePathIgnorePatterns": [
+      "examples"
+    ],
     "transform": {
       "\\.[jt]s?$": "babel-jest",
       "\\.html$": "<rootDir>/fileTransformer.js"

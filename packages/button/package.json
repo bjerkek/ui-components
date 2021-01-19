@@ -2,8 +2,8 @@
   "name": "@ui-components/button",
   "version": "0.0.1",
   "description": "TODO",
-  "main": "dist/bundle.umd.js",
-  "module": "dist/bundle.es.js",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
   "types": "todo",
   "sideEffects": false,
   "repository": {

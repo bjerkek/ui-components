@@ -1,3 +1,5 @@
-import Button from './button'
+import { Button } from './button'
 
-window.customElements.define('ui-button', Button)
+if (!window.customElements.get('ui-button')) {
+  window.customElements.define('ui-button', Button)
+}

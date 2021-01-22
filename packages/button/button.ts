@@ -24,6 +24,10 @@ export class Button extends HTMLElement {
     return this.hasAttribute('type') ? this.getAttribute('type')! : 'button'
   }
 
+  get kind (): string {
+    return this.hasAttribute('kind') ? this.getAttribute('kind')! : 'default'
+  }
+
   handleButtonClick (event: Event): void {
     const form = this.#shadowRoot.host.closest('form')
 
@@ -44,6 +48,10 @@ export class Button extends HTMLElement {
   }
 
   connectedCallback (): void {
+    this.#button.type = this.type
+    if (this.kind === 'default') {
+      this.#button.classList.add('default')
+    }
     this.#button.addEventListener('click', event => this.handleButtonClick(event))
   }
 
@@ -59,7 +67,7 @@ export class Button extends HTMLElement {
     if (newVal !== oldVal) {
       switch (attrName) {
         case 'disabled':
-          (newVal === '')
+          (newVal === '' || newVal === 'true' || newVal === 'disabled')
             ? this.setDisabled(true)
             : this.setDisabled(false)
           break

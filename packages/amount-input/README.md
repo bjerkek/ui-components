@@ -11,7 +11,7 @@ npm install --save @ui-components/amount-input
 ```
 
 ## Props and methods
-|  Name | Observable | Default | Description |
+|  Props | Observable | Default | Description |
 | --- | --- | --- | --- |
 | errormessage | true | | Adds a red border on inputif set and show the error message below. Also handles aria-invalid |
 | defaultvalue | false | | Sets the initial value |
@@ -25,6 +25,6 @@ arialabel | true | | |
 arialabelledby | true | | |
 elementId | true | | |
 
-|  Name | Description |
+| Methods | Description |
 | --- | --- |
 | reset() | Removes all content from input |

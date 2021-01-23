@@ -11,7 +11,7 @@ npm install --save @ui-components/button
 ```
 
 ## Props and methods
-|  Name | Observable | Default | Description |
+|  Props | Observable | Default | Description |
 | --- | --- | --- | --- |
 | kind | true | default | Possible values are primary, danger, link and default. |
 | disabled | true| false | | 

@@ -4,6 +4,7 @@ import { AmountInput, tagName } from './amount-input'
 describe('Amount input', () => {
   let amountInputEl
   let input
+  let errorContainer
 
   beforeAll(() => {
     window.customElements.define(tagName, AmountInput)
@@ -43,5 +44,12 @@ describe('Amount input', () => {
   it('Thousand seperator', () => {
     fireEvent.input(input, { target: { value: '123456789' } })
     expect(input.value).toBe('123 456 789')
+  })
+
+  it('Show error message', () => {
+    amountInputEl.setAttribute('errormessage', 'Something is wrong')
+    const { getByTestId } = within(amountInputEl.shadowRoot)
+    errorContainer = getByTestId('errorContainer')
+    expect(errorContainer).toBeTruthy()
   })
 })

@@ -75,7 +75,7 @@ export class Button extends HTMLElement {
           this.changeStyle(newVal)
           break
         case 'loading':
-          (newVal === '' || newVal === 'true')
+          (newVal === '' || newVal === 'true' || newVal === 'loading')
             ? this.setLoading(true)
             : this.setLoading(false)
           break

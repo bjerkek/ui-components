@@ -17,6 +17,3 @@ npm install --save @ui-components/button
 | disabled | true| false | | 
 | loading | true | false | Disables the button immediately and adds a spinner after 750ms. |
 | type | true | button | Submit or button |
-
-## TypeScript definition files
-This component supports TypeScript.

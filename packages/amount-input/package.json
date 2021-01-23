@@ -1,5 +1,5 @@
 {
-  "name": "@ui-components/input",
+  "name": "@ui-components/amount-input",
   "version": "0.0.1",
   "description": "TODO",
   "main": "dist/bundle.umd.js",

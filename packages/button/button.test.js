@@ -27,6 +27,6 @@ describe('Button', () => {
 
   it('disabled buttons have disabled attribute', () => {
     buttonEl.setAttribute('disabled', '')
-    expect(button.getAttribute('disabled')).toBe('')
+    expect(button.disabled).toBeTruthy()
   })
 })

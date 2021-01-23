@@ -96,8 +96,6 @@ export class AmountInput extends HTMLElement {
   }
 
   connectedCallback (): void {
-    this.#input.type = 'text'
-
     this.#input.addEventListener('input', () => this.handleInputChange(this.#input.value))
 
     if (this.hasAttribute('defaultvalue')) {

@@ -24,3 +24,7 @@ minlength | true | | |
 arialabel | true | | |
 arialabelledby | true | | |
 elementId | true | | |
+
+|  Name | Description |
+| --- | --- |
+| reset() | Removes all content from input |

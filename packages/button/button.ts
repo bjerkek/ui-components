@@ -7,6 +7,8 @@ template.innerHTML = ButtonTemplate
 const loadingTemplate = document.createElement('template')
 loadingTemplate.innerHTML = LoadingTemplate
 
+export const tagName = 'ui-button'
+
 export class Button extends HTMLElement {
   #shadowRoot: ShadowRoot
   #button: HTMLButtonElement

@@ -1,13 +1,13 @@
 import { within } from '@testing-library/dom'
-import { Button } from './button'
+import { Button, tagName } from './button'
 
 describe('Button', () => {
   let buttonEl
   let button
 
   beforeAll(() => {
-    window.customElements.define('ui-button', Button)
-    buttonEl = document.createElement('ui-button')
+    window.customElements.define(tagName, Button)
+    buttonEl = document.createElement(tagName)
     buttonEl.innerHTML = 'My button'
     document.body.appendChild(buttonEl)
 

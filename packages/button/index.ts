@@ -1,5 +1,5 @@
-import { Button } from './button'
+import { Button, tagName } from './button'
 
-if (!window.customElements.get('ui-button')) {
-  window.customElements.define('ui-button', Button)
+if (!window.customElements.get(tagName)) {
+  window.customElements.define(tagName, Button)
 }

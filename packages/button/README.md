@@ -6,7 +6,9 @@ npm install --save @ui-components/button
 ```
 
 ## Usage
-todo
+```
+<ui-button>My button</ui-button>
+```
 
 ## Props and methods
 |  Name | Observable | Default | Description |

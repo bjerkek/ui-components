@@ -23,7 +23,6 @@ maxlength | true | | |
 minlength | true | | |
 arialabel | true | | |
 arialabelledby | true | | |
-elementId | true | | |
 
 | Methods | Description |
 | --- | --- |

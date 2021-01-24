@@ -1,4 +1,4 @@
-# @ui-components/number-input
+# @ui-components/checkbox
 
 ## Install
 ```

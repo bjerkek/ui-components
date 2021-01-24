@@ -7,7 +7,7 @@ import path from 'path'
 
 const dist = 'dist'
 const bundle = 'bundle'
-const production = !process.env.ROLLUP_WATCH // Use this in sourcemaps later
+const production = !process.env.ROLLUP_WATCH
 
 const { LERNA_PACKAGE_NAME, LERNA_ROOT_PATH } = process.env
 const PACKAGE_ROOT_PATH = process.cwd()

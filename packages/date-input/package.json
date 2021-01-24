@@ -1,0 +1,15 @@
+{
+  "name": "@ui-components/date-input",
+  "version": "0.0.1",
+  "description": "TODO",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "types": "todo",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjerkek/ui-components/packages/date-input"
+  },
+  "author": "Bjerkek AS",
+  "license": "MIT"
+}

@@ -9,6 +9,7 @@
     "@ui-components/button": "../../packages/button/",
     "@ui-components/amount-input": "../../packages/amount-input/",
     "@ui-components/number-input": "../../packages/number-input/",
+    "@ui-components/text-input": "../../packages/text-input/",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",

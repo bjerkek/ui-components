@@ -2,6 +2,7 @@ import './App.css';
 import '@ui-components/button'
 import '@ui-components/amount-input'
 import '@ui-components/number-input'
+import '@ui-components/text-input'
 
 function App() {
   const onClick = () => {
@@ -27,6 +28,10 @@ function App() {
       <br />
       <br />
       <ui-number-input />
+      <br />
+      <br />
+      <br />
+      <ui-text-input />
     </div>
   );
 }

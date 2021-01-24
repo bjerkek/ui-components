@@ -11,7 +11,7 @@ describe('Checkbox', () => {
     document.body.appendChild(checkboxEl)
   })
 
-  it('Show error message', () => {
+  it('should show error message', () => {
     checkboxEl.setAttribute('errormessage', 'Something is wrong')
     const { getByTestId } = within(checkboxEl.shadowRoot)
     errorContainer = getByTestId('errorContainer')

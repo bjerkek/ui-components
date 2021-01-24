@@ -15,12 +15,12 @@ describe('Number input', () => {
     input = getByTestId('numberInput')
   })
 
-  it('Allow only numbers', () => {
+  it('should only allow only numbers', () => {
     fireEvent.input(input, { target: { value: 'bacon123eggs¡@£$½¥{[]}±' } })
     expect(input.value).toBe('123')
   })
 
-  it('Show error message', () => {
+  it('should show error message', () => {
     numberInputEl.setAttribute('errormessage', 'Something is wrong')
     const { getByTestId } = within(numberInputEl.shadowRoot)
     errorContainer = getByTestId('errorContainer')

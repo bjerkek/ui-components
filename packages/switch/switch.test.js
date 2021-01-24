@@ -11,7 +11,7 @@ describe('Switch', () => {
     document.body.appendChild(switchEl)
   })
 
-  it('Show error message', () => {
+  it('should show error message', () => {
     switchEl.setAttribute('errormessage', 'Something is wrong')
     const { getByTestId } = within(switchEl.shadowRoot)
     errorContainer = getByTestId('errorContainer')

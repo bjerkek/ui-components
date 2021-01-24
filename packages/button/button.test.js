@@ -15,17 +15,17 @@ describe('Button', () => {
     button = getByTestId('button')
   })
 
-  it('has correct defaults', () => {
+  it('should have correct defaults', () => {
     expect(button.classList.contains('default')).toBeTruthy()
     expect(button.type).toBe('button')
   })
 
-  it('has correct primary styling', () => {
+  it('should have correct primary styling', () => {
     buttonEl.setAttribute('kind', 'primary')
     expect(button.classList.contains('primary')).toBeTruthy()
   })
 
-  it('disabled buttons have disabled attribute', () => {
+  it('should disable buttons when disabled attribute is set', () => {
     buttonEl.setAttribute('disabled', '')
     expect(button.disabled).toBeTruthy()
   })

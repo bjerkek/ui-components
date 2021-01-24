@@ -19,22 +19,22 @@ describe('Date input', () => {
     yearInput = getByTestId('yearInput')
   })
 
-  it('It is never 32 days in a month', () => {
+  it('should not allow 32 days in a month', () => {
     fireEvent.input(dayInput, { target: { value: '32' } })
     expect(dayInput.value).toBe('3')
   })
 
-  it('It is never 13 months in a year', () => {
+  it('should not allow 13 months in a year', () => {
     fireEvent.input(monthInput, { target: { value: '13' } })
     expect(monthInput.value).toBe('1')
   })
 
-  it('For now a year consist of four numbers', () => {
+  it('should, for now, only no more than four numbers in a year', () => {
     fireEvent.input(yearInput, { target: { value: '19977' } })
     expect(yearInput.value).toBe('1997')
   })
 
-  it('Show error message', () => {
+  it('should show error message', () => {
     dateInputEl.setAttribute('errormessage', 'Something is wrong')
     const { getByTestId } = within(dateInputEl.shadowRoot)
     errorContainer = getByTestId('errorContainer')

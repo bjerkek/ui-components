@@ -15,12 +15,12 @@ describe('Number input', () => {
     input = getByTestId('textInput')
   })
 
-  it('Allow whatever', () => {
+  it('should allow whatever as input', () => {
     fireEvent.input(input, { target: { value: 'bacon123eggs¡@£$½¥{[]}±' } })
     expect(input.value).toBe('bacon123eggs¡@£$½¥{[]}±')
   })
 
-  it('Show error message', () => {
+  it('should show error message', () => {
     textInputEl.setAttribute('errormessage', 'Something is wrong')
     const { getByTestId } = within(textInputEl.shadowRoot)
     errorContainer = getByTestId('errorContainer')

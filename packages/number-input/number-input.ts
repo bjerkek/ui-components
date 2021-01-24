@@ -1,12 +1,12 @@
 import BaseInputStyles from './base-input-style.html'
-import NumbertInputTemplate from './number-input-template.html'
+import NumberInputTemplate from './number-input-template.html'
 import ErrorTemplate from './error-template.html'
 
 const errorTemplate = document.createElement('template')
 errorTemplate.innerHTML = ErrorTemplate
 
 const template = document.createElement('template')
-template.innerHTML = BaseInputStyles + NumbertInputTemplate
+template.innerHTML = BaseInputStyles + NumberInputTemplate
 
 export const tagName = 'ui-number-input'
 

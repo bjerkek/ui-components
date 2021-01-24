@@ -8,3 +8,5 @@ UI components as Web Components
 [@ui-components/number-input](/packages/number-input/)
 
 [@ui-components/text-input](/packages/text-input/)
+
+[@ui-components/checkbox](/packages/checkbox/)

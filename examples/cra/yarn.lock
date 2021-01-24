@@ -1949,6 +1949,9 @@
 "@ui-components/number-input@../../packages/number-input/":
   version "0.0.1"
 
+"@ui-components/switch@../../packages/switch/":
+  version "0.0.0"
+
 "@ui-components/text-input@../../packages/text-input/":
   version "0.0.1"
 

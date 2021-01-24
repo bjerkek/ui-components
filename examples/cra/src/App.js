@@ -6,6 +6,7 @@ import '@ui-components/text-input'
 import '@ui-components/checkbox'
 import '@ui-components/date-input'
 import '@ui-components/label'
+import '@ui-components/switch'
 
 function App() {
   const onClick = () => {
@@ -49,6 +50,8 @@ function App() {
       <ui-label label="This is a label" />
       <br />
       <ui-label label="This is a label" sublabel="With sublabel" />
+      <br />
+      <ui-switch>Label</ui-switch>
     </div>
   );
 }

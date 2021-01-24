@@ -33,4 +33,6 @@ UI components as Web Components
 
 [@ui-components/checkbox](/packages/checkbox/)
 
+[@ui-components/switch](/packages/switch/)
+
 [@ui-components/label](/packages/label/)

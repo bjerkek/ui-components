@@ -1,0 +1,61 @@
+<style>
+  :host {
+    all: initial;
+    display: inline-block;
+  }
+  input {
+    margin-left: -2rem;
+    opacity: 0;
+    position: absolute;
+  }
+  input:active + label::after,
+  input:focus + label::after {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 4px #a1dfff;
+  }
+  label {
+    all: initial;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    padding-left: 3.25rem;
+    cursor: pointer;
+    color: var(--ui-text);
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9rem;
+    height: 1.25rem;
+    overflow: visible;
+    box-sizing: border-box;
+    padding-top: 0.1rem;
+  }
+  label::after {
+    content: "";
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: #fff;
+    border: solid 0.1rem var(--ui-border);
+    height: 1.25rem;
+    width: 1.25rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  label::before {
+    content: "";
+    box-sizing: border-box;
+    border-radius: 0.75rem;
+    background: var(--ui-border);
+    height: 0.75rem;
+    width: 2.5rem;
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0;
+  }
+  input:checked + label::after {
+    left: 1.3rem;
+    background: var(--ui-primary);
+    border-color: var(--ui-primary);
+  }
+</style>
+<input id="unique" type="checkbox" aria-invalid="false" />
+<label for="unique"><slot></slot></label>

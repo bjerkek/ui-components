@@ -16,6 +16,10 @@
   --ui-font-regular */
 }
 
+html, body {
+  font-size: 16px;
+}
+
 .App {
   text-align: center;
   padding: 50px;

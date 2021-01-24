@@ -1940,6 +1940,9 @@
 "@ui-components/checkbox@../../packages/checkbox/":
   version "0.0.1"
 
+"@ui-components/date-input@../../packages/date-input/":
+  version "0.0.1"
+
 "@ui-components/number-input@../../packages/number-input/":
   version "0.0.1"
 

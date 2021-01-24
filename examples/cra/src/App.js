@@ -1,6 +1,7 @@
 import './App.css';
 import '@ui-components/button'
 import '@ui-components/amount-input'
+import '@ui-components/number-input'
 
 function App() {
   const onClick = () => {
@@ -21,7 +22,11 @@ function App() {
       <br />
       <br />
       <br />
-      <ui-amount-input allowdecimals />
+      <ui-amount-input allowdecimals errormessage="Something is wrong" />
+      <br />
+      <br />
+      <br />
+      <ui-number-input />
     </div>
   );
 }

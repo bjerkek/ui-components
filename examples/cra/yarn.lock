@@ -1943,7 +1943,13 @@
     "@typescript-eslint/types" "4.8.1"
     eslint-visitor-keys "^2.0.0"
 
+"@ui-components/amount-input@../../packages/amount-input/":
+  version "0.0.1"
+
 "@ui-components/button@../../packages/button/":
+  version "0.0.1"
+
+"@ui-components/number-input@../../packages/number-input/":
   version "0.0.1"
 
 "@webassemblyjs/ast@1.9.0":

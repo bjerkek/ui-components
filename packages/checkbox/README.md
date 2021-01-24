@@ -14,7 +14,7 @@ npm install --save @ui-components/checkbox
 |  Props | Observable | Default | Description |
 | --- | --- | --- | --- |
 | errormessage | true | | Adds a red border on input if set and show the error message below. Also handles aria-invalid |
-| defaultchecked | false | | |
-| inline | false | | |
+| defaultchecked | false | false | |
+| inline | false | false | |
 | arialabel | true | | |
 | arialabelledby | true | | |

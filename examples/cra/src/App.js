@@ -5,6 +5,7 @@ import '@ui-components/number-input'
 import '@ui-components/text-input'
 import '@ui-components/checkbox'
 import '@ui-components/date-input'
+import '@ui-components/label'
 
 function App() {
   const onClick = () => {
@@ -42,6 +43,12 @@ function App() {
       <br />
       <br />
       <ui-date-input showpicker locale="no" />
+      <br />
+      <br />
+      <br />
+      <ui-label label="This is a label" />
+      <br />
+      <ui-label label="This is a label" sublabel="With sublabel" />
     </div>
   );
 }

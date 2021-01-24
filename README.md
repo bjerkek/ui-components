@@ -32,3 +32,5 @@ UI components as Web Components
 [@ui-components/date-input](/packages/date-input/)
 
 [@ui-components/checkbox](/packages/checkbox/)
+
+[@ui-components/label](/packages/label/)

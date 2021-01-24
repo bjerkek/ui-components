@@ -1943,6 +1943,9 @@
 "@ui-components/date-input@../../packages/date-input/":
   version "0.0.1"
 
+"@ui-components/label@../../packages/label/":
+  version "0.0.1"
+
 "@ui-components/number-input@../../packages/number-input/":
   version "0.0.1"
 

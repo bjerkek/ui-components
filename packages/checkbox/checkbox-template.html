@@ -1,0 +1,110 @@
+<style>
+  :host {
+    all: initial;
+    display: inline-block;
+    width: 100%;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  label {
+    all: initial;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    padding-left: 2rem;
+    cursor: pointer;
+    color: var(--ui-text);
+    font-family: var(--ui-font-regular);
+    font-size: 0.9rem;
+    height: 1.2rem;
+    overflow: visible;
+    box-sizing: border-box;
+    padding-top: 0.1rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    label {
+      color: var(--ui-text);
+    }
+  }
+
+  :host(.inline) {
+    width: auto;
+  }
+
+  label.inline {
+    padding-right: 2rem;
+  }
+
+  label::before {
+    content: "";
+    box-sizing: border-box;
+
+    background: var(--ui-background);
+    height: 1.2rem;
+    width: 1.2rem;
+    margin-right: 1rem;
+    display: inline-block;
+
+    border: 0.1rem solid var(--ui-border);
+    border-radius: 0.2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: all 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    label::before {
+      background: var(--ui-dark-background);
+    }
+  }
+
+  input:focus + label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 4px var(--ui-focus);
+  }
+
+  label:hover::before {
+    border-color: var(--ui-primary);
+  }
+
+  label.error::before {
+    border-color: var(--ui-error);
+  }
+
+  input:checked + label::before,
+  input:focus + label::before {
+    border-color: var(--ui-primary);
+  }
+
+  label::after {
+    content: " ";
+    box-sizing: border-box;
+    position: absolute;
+    left: 0.28rem;
+    bottom: 0.6rem;
+
+    border: solid 0 var(--ui-primary);
+    height: 0;
+    width: 0.2rem;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+    transition: height 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  input:checked + label::after {
+    border-width: 0 0.16rem 0.16rem 0;
+    height: 0.6rem;
+    width: 0.35rem;
+  }
+</style>
+<input id="unique_id" type="checkbox" data-testid="checkbox" />
+<label for="unique_id">
+  <slot></slot>
+</label>

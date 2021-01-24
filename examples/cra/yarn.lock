@@ -1937,6 +1937,9 @@
 "@ui-components/button@../../packages/button/":
   version "0.0.1"
 
+"@ui-components/checkbox@../../packages/checkbox/":
+  version "0.0.1"
+
 "@ui-components/number-input@../../packages/number-input/":
   version "0.0.1"
 

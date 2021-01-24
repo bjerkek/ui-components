@@ -3,6 +3,7 @@ import '@ui-components/button'
 import '@ui-components/amount-input'
 import '@ui-components/number-input'
 import '@ui-components/text-input'
+import '@ui-components/checkbox'
 
 function App() {
   const onClick = () => {
@@ -32,6 +33,10 @@ function App() {
       <br />
       <br />
       <ui-text-input />
+      <br />
+      <br />
+      <br />
+      <ui-checkbox>Label</ui-checkbox>
     </div>
   );
 }

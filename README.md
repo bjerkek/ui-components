@@ -1,7 +1,7 @@
 # ui-components
 UI components as Web Components
 
-´´´
+```
 :root {
   --ui-primary: #2364D2;
   --ui-error: #bf303e;
@@ -19,7 +19,7 @@ UI components as Web Components
   /* --ui-font-monospace
   --ui-font-regular */
 }
-´´´
+```
 
 [@ui-components/button](/packages/button/)
 
@@ -28,5 +28,7 @@ UI components as Web Components
 [@ui-components/number-input](/packages/number-input/)
 
 [@ui-components/text-input](/packages/text-input/)
+
+[@ui-components/date-input](/packages/date-input/)
 
 [@ui-components/checkbox](/packages/checkbox/)

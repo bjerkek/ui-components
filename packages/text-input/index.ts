@@ -1,3 +1,5 @@
 import { TextInput, tagName } from './text-input'
 
-window.customElements.define(tagName, TextInput)
+if (!window.customElements.get(tagName)) {
+  window.customElements.define(tagName, TextInput)
+}

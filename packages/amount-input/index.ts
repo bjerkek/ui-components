@@ -1,3 +1,5 @@
 import { AmountInput, tagName } from './amount-input'
 
-window.customElements.define(tagName, AmountInput)
+if (!window.customElements.get(tagName)) {
+  window.customElements.define(tagName, AmountInput)
+}

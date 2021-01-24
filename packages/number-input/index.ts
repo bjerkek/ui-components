@@ -1,3 +1,5 @@
 import { NumberInput, tagName } from './number-input'
 
-window.customElements.define(tagName, NumberInput)
+if (!window.customElements.get(tagName)) {
+  window.customElements.define(tagName, NumberInput)
+}

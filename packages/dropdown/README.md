@@ -28,6 +28,7 @@ npm install --save @ui-components/dropdown
 
 ## Props and methods ui-dropdown-option
 |  Props | Observable | Default | Description |
+| --- | --- | --- | --- |
 | selected | false | | |
 | value | false | | |
 | subtitle | false | | |

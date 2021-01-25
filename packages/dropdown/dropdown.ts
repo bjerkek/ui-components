@@ -30,6 +30,7 @@ export class Dropdown extends HTMLElement {
   #input: HTMLInputElement
   #optionsWrapper: HTMLDivElement
   #arrowButton: HTMLButtonElement
+  #overlay: HTMLDivElement
   #array: {
     value: string,
     name: string,
@@ -45,6 +46,7 @@ export class Dropdown extends HTMLElement {
     this.#input = this.#shadowRoot.querySelector('input')!
     this.#optionsWrapper = this.#shadowRoot.querySelector('.options')! as HTMLDivElement
     this.#arrowButton = this.#shadowRoot.querySelector('#arrowButton')! as HTMLButtonElement
+    this.#overlay = this.#shadowRoot.querySelector('.overlay')! as HTMLDivElement
 
     this.#array = []
   }
@@ -204,6 +206,7 @@ export class Dropdown extends HTMLElement {
     this.#input.addEventListener('click', () => this.handleInputClick())
     this.#input.addEventListener('keydown', event => this.handleInputKeyDown(event))
     this.#arrowButton.addEventListener('click', () => this.handleArrowButtonClick())
+    this.#overlay.addEventListener('click', () => this.closeDropdown())
   }
 
   disconnectedCallback (): void {
@@ -213,6 +216,7 @@ export class Dropdown extends HTMLElement {
     this.#input.removeEventListener('click', () => this.handleInputClick())
     this.#input.removeEventListener('keydown', event => this.handleInputKeyDown(event))
     this.#arrowButton.removeEventListener('click', () => this.handleArrowButtonClick())
+    this.#overlay.removeEventListener('click', () => this.closeDropdown())
   }
 
   static get observedAttributes (): string[] {
@@ -263,9 +267,16 @@ export class Dropdown extends HTMLElement {
     })
   }
 
+  closeDropdown () : void {
+    this.#optionsWrapper.classList.remove('open')
+    this.#arrowButton.classList.remove('open')
+    this.#overlay.classList.remove('visible')
+  }
+
   toggleDropdown (): void {
     this.#optionsWrapper.classList.toggle('open')
     this.#arrowButton.classList.toggle('open')
+    this.#overlay.classList.toggle('visible')
   }
 
   addError (errorMessage: string): void {

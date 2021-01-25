@@ -68,7 +68,22 @@
     display: block;
     color: #969696;
   }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    background: transparent;
+    border: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .visible {
+    display: block;
+  }
 </style>
+<div class="overlay"></div>
 <button id="arrowButton" tabindex="-1" data-testid="button"></button>
 <input class="base-input" aria-invalid="false" data-testid="input" />
 <div class="options" data-testid="options"></div>

@@ -24,6 +24,7 @@ export class DateInput extends HTMLElement {
   #datepickerMonth: HTMLElement
   #datepickerWeekdays: HTMLElement
   #datepickerDays: HTMLElement
+  #overlay: HTMLDivElement
 
   constructor () {
     super()
@@ -46,6 +47,7 @@ export class DateInput extends HTMLElement {
     this.#datepickerMonth = this.#shadowRoot.querySelector('.datepicker-month')! as HTMLElement
     this.#datepickerWeekdays = this.#shadowRoot.querySelector('.datepicker-weekdays')! as HTMLElement
     this.#datepickerDays = this.#shadowRoot.querySelector('.datepicker-days')! as HTMLElement
+    this.#overlay = this.#shadowRoot.querySelector('.overlay')! as HTMLDivElement
   }
 
   connectedCallback (): void {
@@ -67,16 +69,8 @@ export class DateInput extends HTMLElement {
     this.#dayInput.addEventListener('input', () => this.handleDayInputChange(locale))
     this.#monthInput.addEventListener('input', () => this.handleMonthInputChange(locale))
     this.#yearInput.addEventListener('input', () => this.handleYearInputChange())
-
     this.#datepickerButton.addEventListener('click', () => this.handleDatepickerButtonClick(locale))
-
-    // TODO: use pointer-events: none?
-    // document.addEventListener('click', event => {
-    //     const isOutside = !event.target.closest('ui-date-input')
-    //     if (isOutside && !this.#datepicker.classList.contains('open')) {
-    //         this.closeDatepicker()
-    //     }
-    // })
+    this.#overlay.addEventListener('click', () => this.closeDatepicker())
 
     document.addEventListener('keydown', event => {
       // Esc key
@@ -103,8 +97,8 @@ export class DateInput extends HTMLElement {
     this.#dayInput.removeEventListener('input', () => this.handleDayInputChange('no'))
     this.#monthInput.removeEventListener('input', () => this.handleMonthInputChange('no'))
     this.#yearInput.removeEventListener('input', () => this.handleYearInputChange())
-
-    this.#datepickerButton.addEventListener('click', () => this.handleDatepickerButtonClick('no'))
+    this.#datepickerButton.removeEventListener('click', () => this.handleDatepickerButtonClick('no'))
+    this.#overlay.removeEventListener('click', () => this.closeDatepicker())
   }
 
   static get observedAttributes (): string[] {
@@ -184,10 +178,12 @@ export class DateInput extends HTMLElement {
   handleDatepickerButtonClick (locale: string): void {
     if (!this.#datepicker.classList.contains('hide')) {
       this.#datepicker.classList.add('hide')
+      this.#overlay.classList.remove('visible')
       return
     }
 
     this.#datepicker.classList.remove('hide')
+    this.#overlay.classList.add('visible')
 
     this.renderCalendar(locale)
   }
@@ -206,6 +202,7 @@ export class DateInput extends HTMLElement {
 
   closeDatepicker () {
     this.#datepicker.classList.add('hide')
+    this.#overlay.classList.remove('visible')
   }
 
   renderCalendar (locale: string, date = new Date()): void {

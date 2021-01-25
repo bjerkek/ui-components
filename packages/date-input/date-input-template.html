@@ -220,8 +220,23 @@
   .hide {
     display: none;
   }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    background: transparent;
+    border: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .visible {
+    display: block;
+  }
 </style>
 
+<div class="overlay"></div>
 <div id="inputContainer" class="base-input" aria-invalid="false">
   <div id="input_1_container">
     <input id="day" placeholder="DD" data-testid="dayInput" />

@@ -36,3 +36,5 @@ UI components as Web Components
 [@ui-components/switch](/packages/switch/)
 
 [@ui-components/label](/packages/label/)
+
+[@ui-components/dropdown](/packages/dropdown/)

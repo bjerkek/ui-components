@@ -7,6 +7,7 @@ import '@ui-components/checkbox'
 import '@ui-components/date-input'
 import '@ui-components/label'
 import '@ui-components/switch'
+import '@ui-components/dropdown'
 
 function App() {
   const onClick = () => {
@@ -52,6 +53,40 @@ function App() {
       <ui-label label="This is a label" sublabel="With sublabel" />
       <br />
       <ui-switch>Label</ui-switch>
+      <br />
+      <br />
+      <br />
+      <ui-dropdown
+          searchable
+          searchablesubtitle
+          placeholder="Search..."
+          emptysearchtext="Sorry, no result"
+        >
+          <ui-dropdown-option
+            selected
+            value='-1'
+          >
+            Please choose an option
+          </ui-dropdown-option>
+          <ui-dropdown-option
+            value='944521836'
+            subtitle='944521836'
+          >
+            SPAREBANK 1 BV
+          </ui-dropdown-option>
+          <ui-dropdown-option
+            value='937888015'
+            subtitle='937888015'
+          >
+            SPAREBANK 1 LOM OG SKJÅK
+          </ui-dropdown-option>
+          <ui-dropdown-option
+            value='937899408'
+            subtitle='937899408'
+          >
+            SPAREBANK 1 NORDVEST
+          </ui-dropdown-option>
+        </ui-dropdown>
     </div>
   );
 }

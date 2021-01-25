@@ -1943,6 +1943,9 @@
 "@ui-components/date-input@../../packages/date-input/":
   version "0.0.1"
 
+"@ui-components/dropdown@../../packages/dropdown/":
+  version "0.0.1"
+
 "@ui-components/label@../../packages/label/":
   version "0.0.1"
 
@@ -1950,7 +1953,7 @@
   version "0.0.1"
 
 "@ui-components/switch@../../packages/switch/":
-  version "0.0.0"
+  version "0.0.1"
 
 "@ui-components/text-input@../../packages/text-input/":
   version "0.0.1"

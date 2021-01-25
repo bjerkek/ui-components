@@ -14,6 +14,7 @@
     "@ui-components/date-input": "../../packages/date-input/",
     "@ui-components/label": "../../packages/label/",
     "@ui-components/switch": "../../packages/switch/",
+    "@ui-components/dropdown": "../../packages/dropdown/",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",

@@ -18,11 +18,11 @@ npm install --save @ui-components/text-input
 | placeholder | true | | |
 | readonly | true | | |
 | spellcheck | true | | |
-autocomplete | true | | |
-maxlength | true | | |
-minlength | true | | |
-arialabel | true | | |
-arialabelledby | true | | |
+| autocomplete | true | | |
+| maxlength | true | | |
+| minlength | true | | |
+| arialabel | true | | |
+| arialabelledby | true | | |
 
 | Methods | Description |
 | --- | --- |

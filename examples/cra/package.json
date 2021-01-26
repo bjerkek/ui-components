@@ -15,6 +15,7 @@
     "@ui-components/label": "../../packages/label/",
     "@ui-components/switch": "../../packages/switch/",
     "@ui-components/dropdown": "../../packages/dropdown/",
+    "@ui-components/textarea": "../../packages/textarea/",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",

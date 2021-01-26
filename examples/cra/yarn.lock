@@ -1958,6 +1958,9 @@
 "@ui-components/text-input@../../packages/text-input/":
   version "0.0.1"
 
+"@ui-components/textarea@../../packages/textarea/":
+  version "0.0.1"
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://nexus02.prod-int.sparebank1.no/repository/npmgroup/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"

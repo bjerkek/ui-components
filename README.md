@@ -38,3 +38,5 @@ UI components as Web Components
 [@ui-components/label](/packages/label/)
 
 [@ui-components/dropdown](/packages/dropdown/)
+
+[@ui-components/textarea](/packages/textarea/)

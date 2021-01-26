@@ -1,0 +1,24 @@
+<style>
+  :host {
+    all: initial;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+  }
+  #textarea {
+    resize: auto;
+    font-size: 0.9rem;
+    font-family: var(--ui-font-regular);
+    line-height: 1.5rem;
+    min-height: 10rem;
+  }
+  .counter {
+    font-size: 0.9rem;
+    font-family: var(--ui-font-regular);
+  }
+  .hide {
+    display: none;
+  }
+</style>
+<textarea id="textarea" class="base-input" aria-invalid="false" data-testid="textarea"></textarea>
+<div class="counter hide" data-testid="counter"></div>

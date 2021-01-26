@@ -8,6 +8,7 @@ import '@ui-components/date-input'
 import '@ui-components/label'
 import '@ui-components/switch'
 import '@ui-components/dropdown'
+import '@ui-components/textarea'
 
 function App() {
   const onClick = () => {
@@ -87,6 +88,9 @@ function App() {
             SPAREBANK 1 NORDVEST
           </ui-dropdown-option>
         </ui-dropdown>
+        <br />
+        <br />
+        <ui-textarea maxlength="900" errormessage="Something is wrong"></ui-textarea>
     </div>
   );
 }

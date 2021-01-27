@@ -37,7 +37,7 @@ export class Label extends HTMLElement {
 
   connectedCallback () {
     if (this.htmlFor) {
-      this.#label.htmlFor = this.getAttribute('htmlFor')!
+      this.#label.htmlFor = this.htmlFor
     }
 
     this.setLabel(this.label, this.sublabel)

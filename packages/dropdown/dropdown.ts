@@ -174,9 +174,7 @@ export class Dropdown extends HTMLElement {
     if (this.isSearchable) {
       this.#input.addEventListener('input', () => this.handleInputChange(this.#input.value.toString()))
 
-      const placeholder = this.getAttribute('placeholder')
-
-      if (placeholder && placeholder.length > 0) {
+      if (this.placeholder.length > 0) {
         this.#input.setAttribute('placeholder', this.placeholder)
       }
     } else {

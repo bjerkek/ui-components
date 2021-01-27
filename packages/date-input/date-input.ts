@@ -54,8 +54,12 @@ export class DateInput extends HTMLElement {
     return this.getAttribute('locale') || 'no'
   }
 
+  get showpicker (): boolean {
+    return this.hasAttribute('showpicker')
+  }
+
   connectedCallback (): void {
-    this.hasAttribute('showpicker') &&
+    this.showpicker &&
       this.#datepickerButton.classList.remove('hide')
 
     if (this.locale !== 'no') {

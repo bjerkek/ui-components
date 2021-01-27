@@ -24,6 +24,14 @@ export class Checkbox extends HTMLElement {
     this.#label = this.#shadowRoot.querySelector('label')!
   }
 
+  get inline (): boolean {
+    return this.hasAttribute('inline')
+  }
+
+  get defaultchecked (): boolean {
+    return this.hasAttribute('defaultchecked')
+  }
+
   reset (): void {
     this.#input.checked = false
     this.handleInputChange(false)
@@ -43,12 +51,12 @@ export class Checkbox extends HTMLElement {
   connectedCallback (): void {
     this.#input.addEventListener('input', () => this.handleInputChange(this.#input.checked))
 
-    if (this.hasAttribute('inline')) {
+    if (this.inline) {
       this.classList.add('inline')
       this.#label.classList.add('inline')
     }
 
-    if (this.hasAttribute('defaultchecked')) {
+    if (this.defaultchecked) {
       this.#input.checked = true
       this.handleInputChange(true)
     }

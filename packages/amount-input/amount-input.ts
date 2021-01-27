@@ -33,6 +33,10 @@ export class AmountInput extends HTMLElement {
     return this.getAttribute('locale') || 'no'
   }
 
+  get allowdecimals (): boolean {
+    return this.hasAttribute('allowdecimals')
+  }
+
   reset (): void {
     this.#input.value = ''
     this.handleInputChange('')
@@ -40,9 +44,8 @@ export class AmountInput extends HTMLElement {
 
   handleInputChange (value: string): void {
     let formattedValue = value
-    const allowdecimals = this.hasAttribute('allowdecimals') || false
     const seperator = this.locale === 'en' ? '.' : ','
-    const seperatorRegex = allowdecimals ? new RegExp(`[^0-9${seperator}]`, 'g') : /[^0-9]/g
+    const seperatorRegex = this.allowdecimals ? new RegExp(`[^0-9${seperator}]`, 'g') : /[^0-9]/g
 
     // Remove leading zero
     formattedValue =
@@ -55,7 +58,7 @@ export class AmountInput extends HTMLElement {
     // Allow only numbers, dots and commas (according to allowDecimals)
     formattedValue = formattedValue.replace(seperatorRegex, '')
 
-    if (allowdecimals) {
+    if (this.allowdecimals) {
       // Remove leading dot and comma
       formattedValue = formattedValue.startsWith(seperator) ? formattedValue.slice(1) : formattedValue
 

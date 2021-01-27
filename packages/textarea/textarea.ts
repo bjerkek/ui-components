@@ -106,7 +106,6 @@ export class Textarea extends HTMLElement {
     }
   }
 
-  // TODO: query by class error?
   addError = (errorMessage: string): void => {
     this.#textarea.classList.add('error')
     this.#textarea.setAttribute('aria-invalid', 'true')

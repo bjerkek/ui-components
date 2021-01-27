@@ -16,6 +16,11 @@ describe('Amount input', () => {
     input = getByTestId('amountInput')
   })
 
+  it('should have no as default local', () => {
+    fireEvent.input(input, { target: { value: '1,23' } })
+    expect(input.value).toBe('1,23')
+  })
+
   it('should remove leading zero', () => {
     fireEvent.input(input, { target: { value: '023' } })
     expect(input.value).toBe('23')

@@ -18,15 +18,15 @@ export class Label extends HTMLElement {
   }
 
   get label (): string {
-    return this.hasAttribute('label') ? this.getAttribute('label')! : ''
+    return this.getAttribute('label') || ''
   }
 
   get sublabel (): string {
-    return this.hasAttribute('sublabel') ? this.getAttribute('sublabel')! : ''
+    return this.getAttribute('sublabel') || ''
   }
 
   get htmlFor (): string {
-    return this.hasAttribute('htmlFor') ? this.getAttribute('htmlFor')! : ''
+    return this.getAttribute('htmlFor') || ''
   }
 
   setLabel (label: string, subLabel: string) {

@@ -23,11 +23,11 @@ export class Button extends HTMLElement {
   }
 
   get type (): string {
-    return this.hasAttribute('type') ? this.getAttribute('type')! : 'button'
+    return this.getAttribute('type') || 'button'
   }
 
   get kind (): string {
-    return this.hasAttribute('kind') ? this.getAttribute('kind')! : 'default'
+    return this.getAttribute('kind') || 'default'
   }
 
   handleButtonClick (event: Event): void {

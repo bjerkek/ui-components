@@ -111,8 +111,8 @@ export class NumberInput extends HTMLElement {
           break
         case 'errormessage':
           newVal
-            ? this.addError(newVal, this.#input, this.#shadowRoot)
-            : this.removeError(this.#input, this.#shadowRoot)
+            ? this.addError(newVal)
+            : this.removeError()
           break
         default:
           console.log('Changed unknown attribute:', attrName)
@@ -120,20 +120,20 @@ export class NumberInput extends HTMLElement {
     }
   }
 
-  addError = (errorMessage: string, input: HTMLInputElement, shadowRoot: ShadowRoot): void => {
-    input.classList.add('error')
-    input.setAttribute('aria-invalid', 'true')
+  addError = (errorMessage: string): void => {
+    this.#input.classList.add('error')
+    this.#input.setAttribute('aria-invalid', 'true')
 
-    shadowRoot.appendChild(errorTemplate.content.cloneNode(true))
+    this.#shadowRoot.appendChild(errorTemplate.content.cloneNode(true))
 
-    shadowRoot.querySelector('p')!.innerText = errorMessage
+    this.#shadowRoot.querySelector('p')!.innerText = errorMessage
   }
 
-  removeError = (input: HTMLInputElement, shadowRoot: ShadowRoot): void => {
-    input.classList.remove('error')
-    input.setAttribute('aria-invalid', 'false')
+  removeError = (): void => {
+    this.#input.classList.remove('error')
+    this.#input.setAttribute('aria-invalid', 'false')
 
-    const error = shadowRoot.querySelector('p')
-    error && shadowRoot.removeChild(error)
+    const error = this.#shadowRoot.querySelector('p')
+    error && this.#shadowRoot.removeChild(error)
   }
 }

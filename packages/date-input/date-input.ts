@@ -50,13 +50,15 @@ export class DateInput extends HTMLElement {
     this.#overlay = this.#shadowRoot.querySelector('.overlay')! as HTMLDivElement
   }
 
+  get locale (): string {
+    return this.getAttribute('locale') || 'no'
+  }
+
   connectedCallback (): void {
     this.hasAttribute('showpicker') &&
       this.#datepickerButton.classList.remove('hide')
 
-    const locale = this.getAttribute('locale') || 'no'
-
-    if (locale !== 'no') {
+    if (this.locale !== 'no') {
       this.#input_1_container.appendChild(this.#monthInput)
       this.#input_2_container.appendChild(this.#dayInput)
     }
@@ -66,10 +68,10 @@ export class DateInput extends HTMLElement {
     //   this.$dayInput.id = this.getAttribute('elementId')
     // }
 
-    this.#dayInput.addEventListener('input', () => this.handleDayInputChange(locale))
-    this.#monthInput.addEventListener('input', () => this.handleMonthInputChange(locale))
+    this.#dayInput.addEventListener('input', () => this.handleDayInputChange(this.locale))
+    this.#monthInput.addEventListener('input', () => this.handleMonthInputChange(this.locale))
     this.#yearInput.addEventListener('input', () => this.handleYearInputChange())
-    this.#datepickerButton.addEventListener('click', () => this.handleDatepickerButtonClick(locale))
+    this.#datepickerButton.addEventListener('click', () => this.handleDatepickerButtonClick(this.locale))
     this.#overlay.addEventListener('click', () => this.closeDatepicker())
 
     document.addEventListener('keydown', event => {

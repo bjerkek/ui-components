@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  :root {
+  --ui-primary: #2364D2;
+  --ui-error: #bf303e;
+  --ui-focus: #a1dfff;
+  --ui-border: #ced6e0;
+  --ui-background: #FFF;
+  --ui-text: #353535;
+
+  --ui-dark-primary: #2364D2;
+  --ui-dark-error: #bf303e;
+  --ui-dark-focus: #a1dfff;
+  --ui-dark-border: #ced6e0;
+  --ui-dark-background: #2d3242;
+  --ui-dark-text: #FFF;
+  /* --ui-font-monospace
+  --ui-font-regular */
+}
+
+html, body {
+  font-size: 16px;
+}
+input {
+  background-color: #bf303e;
+}
+</style>
+<body>
+  
+  <ui-radio-group name="my-name-1">
+    <ui-radio-button value="one">Number one</ui-radio-button>
+    <ui-radio-button value="two">Number two</ui-radio-button>
+    <ui-radio-button value="three">Number three</ui-radio-button>
+  </ui-radio-group>
+
+  <ui-radio-group name="my-name-2" errormessage="This is an error">
+    <ui-radio-button value="one">Number one</ui-radio-button>
+    <ui-radio-button value="two">Number two</ui-radio-button>
+    <ui-radio-button value="three">Number three</ui-radio-button>
+  </ui-radio-group>
+
+  <script src="../../packages/radio-button/dist/bundle.umd.js"></script>
+  
+</body>
+</html>

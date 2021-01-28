@@ -1,7 +1,7 @@
 {
   "name": "@ui-components/textarea",
   "version": "0.0.1",
-  "description": "TODO",
+  "description": "Textarea as web component",
   "main": "dist/bundle.umd.js",
   "module": "dist/bundle.es.js",
   "sideEffects": false,
@@ -9,6 +9,11 @@
     "type": "git",
     "url": "https://github.com/bjerkek/ui-components/packages/textarea"
   },
+  "keywords": [
+    "ui-components/textarea",
+    "web-components",
+    "textarea"
+  ],
   "author": "Bjerkek AS",
   "license": "MIT"
 }

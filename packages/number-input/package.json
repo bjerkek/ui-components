@@ -1,15 +1,19 @@
 {
   "name": "@ui-components/number-input",
   "version": "0.0.1",
-  "description": "TODO",
+  "description": "Number input as web component",
   "main": "dist/bundle.umd.js",
   "module": "dist/bundle.es.js",
-  "types": "todo",
   "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/bjerkek/ui-components/packages/number-input"
   },
+  "keywords": [
+    "ui-components/number-input",
+    "web-components",
+    "number-input"
+  ],
   "author": "Bjerkek AS",
   "license": "MIT"
 }

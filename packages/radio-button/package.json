@@ -1,15 +1,19 @@
 {
   "name": "@ui-components/radio-button",
   "version": "0.0.1",
-  "description": "TODO",
+  "description": "Radio button as web component",
   "main": "dist/bundle.umd.js",
   "module": "dist/bundle.es.js",
-  "types": "todo",
   "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/bjerkek/ui-components/packages/radio-button"
   },
+  "keywords": [
+    "ui-components/radio-button",
+    "web-components",
+    "radio-button"
+  ],
   "author": "Bjerkek AS",
   "license": "MIT"
 }

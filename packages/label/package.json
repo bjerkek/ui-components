@@ -1,15 +1,19 @@
 {
   "name": "@ui-components/label",
   "version": "0.0.1",
-  "description": "TODO",
+  "description": "Label as web component",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
-  "types": "todo",
   "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/bjerkek/ui-components/packages/label"
   },
+  "keywords": [
+    "ui-components/label",
+    "web-components",
+    "label"
+  ],
   "author": "Bjerkek AS",
   "license": "MIT"
 }

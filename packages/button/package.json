@@ -1,15 +1,19 @@
 {
   "name": "@ui-components/button",
   "version": "0.0.1",
-  "description": "TODO",
+  "description": "Button as web component",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
-  "types": "todo",
   "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/bjerkek/ui-components/packages/button"
   },
+  "keywords": [
+    "ui-components/button",
+    "web-components",
+    "button"
+  ],
   "author": "Bjerkek AS",
   "license": "MIT"
 }

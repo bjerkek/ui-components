@@ -1,15 +1,19 @@
 {
   "name": "@ui-components/dropdown",
   "version": "0.0.1",
-  "description": "TODO",
+  "description": "Dropdown as web component",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
-  "types": "todo",
   "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/bjerkek/ui-components/packages/dropdown"
   },
+  "keywords": [
+    "ui-components/dropdown",
+    "web-components",
+    "dropdown"
+  ],
   "author": "Bjerkek AS",
   "license": "MIT"
 }

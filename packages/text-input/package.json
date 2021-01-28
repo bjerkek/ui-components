@@ -1,7 +1,7 @@
 {
   "name": "@ui-components/text-input",
   "version": "0.0.1",
-  "description": "TODO",
+  "description": "Text input as web component",
   "main": "dist/bundle.umd.js",
   "module": "dist/bundle.es.js",
   "sideEffects": false,
@@ -9,6 +9,11 @@
     "type": "git",
     "url": "https://github.com/bjerkek/ui-components/packages/text-input"
   },
+  "keywords": [
+    "ui-components/text-input",
+    "web-components",
+    "text-input"
+  ],
   "author": "Bjerkek AS",
   "license": "MIT"
 }

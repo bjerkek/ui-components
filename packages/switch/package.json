@@ -1,15 +1,19 @@
 {
   "name": "@ui-components/switch",
   "version": "0.0.1",
-  "description": "TODO",
+  "description": "Switch as web component",
   "main": "dist/bundle.umd.js",
   "module": "dist/bundle.es.js",
-  "types": "todo",
   "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/bjerkek/ui-components/packages/switch"
   },
+  "keywords": [
+    "ui-components/switch",
+    "web-components",
+    "switch"
+  ],
   "author": "Bjerkek AS",
   "license": "MIT"
 }

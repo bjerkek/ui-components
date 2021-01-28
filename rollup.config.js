@@ -1,6 +1,7 @@
 import babel from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
+import bundleSize from 'rollup-plugin-bundle-size'
 import { terser } from 'rollup-plugin-terser'
 import { string } from 'rollup-plugin-string'
 import path from 'path'
@@ -48,6 +49,7 @@ export default {
     string({
       include: '**/*.html'
     }),
+    bundleSize(),
     production && terser()
   ]
 }

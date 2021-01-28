@@ -22,12 +22,12 @@ export class NumberInput extends HTMLElement {
     this.#input = this.#shadowRoot.querySelector('input')!
   }
 
-  reset () {
+  reset (): void {
     this.#input.value = ''
     this.handleInputChange('')
   }
 
-  handleInputChange (value: string, removeLeadingZero: boolean = false) {
+  handleInputChange (value: string, removeLeadingZero: boolean = false): void {
     this.classList.add('number')
 
     let formattedValue = value.replace(/\D/g, '')
@@ -49,7 +49,7 @@ export class NumberInput extends HTMLElement {
     this.dispatchEvent(evt)
   }
 
-  connectedCallback () {
+  connectedCallback (): void {
     let removeLeadingZero = false
 
     if (this.hasAttribute('removeleadingzero')) {
@@ -64,7 +64,7 @@ export class NumberInput extends HTMLElement {
     // }
   }
 
-  disconnectedCallback () {
+  disconnectedCallback (): void {
     this.#input.removeEventListener('input', () => this.handleInputChange(this.#input.value))
   }
 

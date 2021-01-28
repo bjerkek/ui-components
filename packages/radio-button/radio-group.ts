@@ -47,6 +47,11 @@ export class RadioGroup extends HTMLElement {
       label.innerHTML = radio.innerHTML
       label.setAttribute('for', `ui-radio-input-${index}`)
 
+      if (this.inline) {
+        label.style.width = 'auto'
+        label.style.marginRight = '2rem'
+      }
+
       input.addEventListener('change', () => {
         const evt = new CustomEvent('onchange', {
           detail: {
@@ -64,6 +69,7 @@ export class RadioGroup extends HTMLElement {
         input.setAttribute('aria-invalid', 'true')
         label.classList.add('error')
         this.#shadowRoot.insertBefore(radioEl, error)
+        return
       }
 
       this.#shadowRoot.appendChild(radioEl)

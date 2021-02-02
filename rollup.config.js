@@ -49,7 +49,7 @@ export default {
     string({
       include: '**/*.html'
     }),
-    bundleSize(),
-    production && terser()
+    production && terser(),
+    bundleSize()
   ]
 }

@@ -21,8 +21,9 @@ npm install --save @ui-components/text-input
 | autocomplete | true | | |
 | maxlength | true | | |
 | minlength | true | | |
-| arialabel | true | | |
-| arialabelledby | true | | |
+| arialabel | true | | Adds aria-label attribute |
+| arialabelledby | true | | Adds aria-labelledby attribute |
+
 
 | Methods | Description |
 | --- | --- |

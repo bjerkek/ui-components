@@ -18,8 +18,8 @@ npm install --save @ui-components/textarea
 | spellcheck | true | | |
 | autocomplete | true | | |
 | maxlength | true | | Shows a counter of numbers of letters left |
-| arialabel | true | | |
-| arialabelledby | true | | |
+| arialabel | true | | Adds aria-label attribute |
+| arialabelledby | true | | Adds aria-labelledby attribute |
 
 
 | Methods | Description |

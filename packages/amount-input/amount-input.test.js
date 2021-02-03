@@ -19,6 +19,9 @@ describe('Amount input', () => {
   it('should have no as default local', () => {
     fireEvent.input(input, { target: { value: '1,23' } })
     expect(input.value).toBe('1,23')
+
+    fireEvent.input(input, { target: { value: '1.23' } })
+    expect(input.value).toBe('123')
   })
 
   it('should remove leading zero', () => {
@@ -51,7 +54,7 @@ describe('Amount input', () => {
     expect(input.value).toBe('123 456 789')
   })
 
-  it('should set attribute', () => {
+  it('should set observed attributes', () => {
     amountInputEl.setAttribute('data-aria-label', 'This is aria-label')
     expect(input.getAttribute('aria-label')).toBe('This is aria-label')
 

@@ -62,7 +62,11 @@ export class Button extends HTMLElement {
   }
 
   static get observedAttributes (): string[] {
-    return ['disabled', 'kind', 'loading']
+    return [
+      'disabled',
+      'kind',
+      'loading'
+    ]
   }
 
   attributeChangedCallback (attrName: string, oldVal: string, newVal: string): void {

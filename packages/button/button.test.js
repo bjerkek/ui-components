@@ -25,6 +25,22 @@ describe('Button', () => {
     expect(button.classList.contains('primary')).toBeTruthy()
   })
 
+  it('should set observed attributes', () => {
+    buttonEl.setAttribute('kind', 'primary')
+    expect(button.classList.contains('primary')).toBeTruthy()
+
+    buttonEl.setAttribute('data-disabled', 'true')
+    expect(button.disabled).toBeTruthy()
+  })
+
+  it('should show a timer after 750ms when setting the loading attribute and disable the button', () => {
+    buttonEl.setAttribute('loading', 'true')
+    setTimeout(() => {
+      expect(button.querySelector('.loadingContainer')).toBeTruthy()
+      expect(button.disabled).toBeTruthy()
+    }, 751)
+  })
+
   it('should disable buttons when disabled attribute is set', () => {
     buttonEl.setAttribute('disabled', '')
     expect(button.disabled).toBeTruthy()

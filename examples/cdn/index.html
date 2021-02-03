@@ -20,8 +20,8 @@
   --ui-dark-border: #ced6e0;
   --ui-dark-background: #2d3242;
   --ui-dark-text: #FFF;
-  /* --ui-font-monospace
-  --ui-font-regular */
+  --ui-font-monospace: 'Courier New', Courier, monospace;
+  --ui-font-regular: 'Courier New', Courier, monospace;
 }
 
 html, body {
@@ -45,7 +45,15 @@ input {
     <ui-radio-button value="three">Number three</ui-radio-button>
   </ui-radio-group>
 
+  <ui-text-input></ui-text-input>
+  <ui-amount-input></ui-amount-input>
+  <ui-button kind="primary">my button</ui-button>
+  <ui-button kind="primary" disabled>my button</ui-button>
+  
   <script src="../../packages/radio-button/dist/bundle.umd.js"></script>
+  <script src="../../packages/text-input/dist/bundle.umd.js"></script>
+  <script src="../../packages/amount-input/dist/bundle.umd.js"></script>
+  <script src="../../packages/button/dist/bundle.umd.js"></script>
   
 </body>
 </html>

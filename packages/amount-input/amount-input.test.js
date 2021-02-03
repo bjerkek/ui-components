@@ -54,6 +54,12 @@ describe('Amount input', () => {
     expect(input.value).toBe('123 456 789')
   })
 
+  it('it should empty the field when calling reset()', () => {
+    fireEvent.input(input, { target: { value: '123456789' } })
+    amountInputEl.reset()
+    expect(input.value).toBe('')
+  })
+
   it('should set observed attributes', () => {
     amountInputEl.setAttribute('data-aria-label', 'This is aria-label')
     expect(input.getAttribute('aria-label')).toBe('This is aria-label')

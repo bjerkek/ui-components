@@ -28,8 +28,6 @@ export class NumberInput extends HTMLElement {
   }
 
   handleInputChange (value: string, removeLeadingZero: boolean = false): void {
-    this.classList.add('number')
-
     let formattedValue = value.replace(/\D/g, '')
 
     if (removeLeadingZero) {

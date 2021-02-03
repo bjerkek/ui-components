@@ -39,8 +39,6 @@ export class TextInput extends HTMLElement {
   }
 
   connectedCallback (): void {
-    this.#input.type = 'text'
-
     this.#input.addEventListener('input', () => this.handleInputChange(this.#input.value.toString()))
 
     // if (this.hasAttribute('defaultvalue')) {

@@ -75,7 +75,6 @@ export class AmountInput extends HTMLElement {
     formattedValue = seperatorFormatter(formattedValue)
 
     // Add to view
-    this.classList.add('number')
     this.#input.value = formattedValue
 
     // Remove thousand seperator

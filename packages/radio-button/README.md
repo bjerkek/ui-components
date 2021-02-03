@@ -23,3 +23,6 @@ npm install --save @ui-components/radio-button
 | Methods | Description |
 | --- | --- |
 | TODO reset() | Removes all content from input |
+
+## TODO
+Remove name attribute

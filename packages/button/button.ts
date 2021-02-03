@@ -86,7 +86,7 @@ export class Button extends HTMLElement {
             : this.setLoading(false)
           break
         default:
-          console.log('Changed unknown attribute:', attrName)
+          console.warn('Unknown attribute:', attrName)
       }
     }
   }

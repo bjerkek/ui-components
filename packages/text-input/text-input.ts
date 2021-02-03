@@ -98,7 +98,7 @@ export class TextInput extends HTMLElement {
             : this.removeError()
           break
         default:
-          console.log('Changed unknown attribute:', attrName)
+          console.warn('Unknown attribute:', attrName)
       }
     }
   }

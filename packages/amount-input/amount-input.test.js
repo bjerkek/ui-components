@@ -51,6 +51,32 @@ describe('Amount input', () => {
     expect(input.value).toBe('123 456 789')
   })
 
+  it('should set attribute', () => {
+    amountInputEl.setAttribute('data-aria-label', 'This is aria-label')
+    expect(input.getAttribute('aria-label')).toBe('This is aria-label')
+
+    amountInputEl.setAttribute('data-aria-labelledby', 'This is aria-labelledby')
+    expect(input.getAttribute('aria-labelledby')).toBe('This is aria-labelledby')
+
+    amountInputEl.setAttribute('data-placeholder', 'This is placeholder')
+    expect(input.getAttribute('placeholder')).toBe('This is placeholder')
+
+    amountInputEl.setAttribute('data-autocomplete', 'This is autocomplete')
+    expect(input.getAttribute('autocomplete')).toBe('This is autocomplete')
+
+    amountInputEl.setAttribute('data-maxlength', 'This is maxlength')
+    expect(input.getAttribute('maxlength')).toBe('This is maxlength')
+
+    amountInputEl.setAttribute('data-minlength', 'This is minlength')
+    expect(input.getAttribute('minlength')).toBe('This is minlength')
+
+    amountInputEl.setAttribute('data-readonly', 'true')
+    expect(input.hasAttribute('readonly')).toBeTruthy()
+
+    amountInputEl.setAttribute('data-spellcheck', 'true')
+    expect(input.hasAttribute('spellcheck')).toBeTruthy()
+  })
+
   it('should show error message', () => {
     amountInputEl.setAttribute('errormessage', 'Something is wrong')
     const { getByTestId } = within(amountInputEl.shadowRoot)

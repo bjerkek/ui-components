@@ -63,7 +63,7 @@ export class Button extends HTMLElement {
 
   static get observedAttributes (): string[] {
     return [
-      'disabled',
+      'data-disabled',
       'kind',
       'loading'
     ]
@@ -72,7 +72,7 @@ export class Button extends HTMLElement {
   attributeChangedCallback (attrName: string, oldVal: string, newVal: string): void {
     if (newVal !== oldVal) {
       switch (attrName) {
-        case 'disabled':
+        case 'data-disabled':
           (newVal === '' || newVal === 'true' || newVal === 'disabled')
             ? this.setDisabled(true)
             : this.setDisabled(false)

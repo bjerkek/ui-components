@@ -54,28 +54,23 @@ export class DateInput extends HTMLElement {
     return this.getAttribute('locale') || 'no'
   }
 
-  get showpicker (): boolean {
-    return this.hasAttribute('showpicker')
+  get hidepicker (): boolean {
+    return this.hasAttribute('hidepicker')
   }
 
   connectedCallback (): void {
-    this.showpicker &&
-      this.#datepickerButton.classList.remove('hide')
+    this.hidepicker &&
+      this.#datepickerButton.classList.add('hide')
 
     if (this.locale !== 'no') {
       this.#input_1_container.appendChild(this.#monthInput)
       this.#input_2_container.appendChild(this.#dayInput)
     }
 
-    // TODO: Replace with aria
-    // if(this.hasAttribute('elementId')) {
-    //   this.$dayInput.id = this.getAttribute('elementId')
-    // }
-
-    this.#dayInput.addEventListener('input', () => this.handleDayInputChange(this.locale))
-    this.#monthInput.addEventListener('input', () => this.handleMonthInputChange(this.locale))
+    this.#dayInput.addEventListener('input', () => this.handleDayInputChange())
+    this.#monthInput.addEventListener('input', () => this.handleMonthInputChange())
     this.#yearInput.addEventListener('input', () => this.handleYearInputChange())
-    this.#datepickerButton.addEventListener('click', () => this.handleDatepickerButtonClick(this.locale))
+    this.#datepickerButton.addEventListener('click', () => this.handleDatepickerButtonClick())
     this.#overlay.addEventListener('click', () => this.closeDatepicker())
 
     document.addEventListener('keydown', event => {
@@ -100,10 +95,10 @@ export class DateInput extends HTMLElement {
   }
 
   disconnectedCallback (): void {
-    this.#dayInput.removeEventListener('input', () => this.handleDayInputChange('no'))
-    this.#monthInput.removeEventListener('input', () => this.handleMonthInputChange('no'))
+    this.#dayInput.removeEventListener('input', () => this.handleDayInputChange())
+    this.#monthInput.removeEventListener('input', () => this.handleMonthInputChange())
     this.#yearInput.removeEventListener('input', () => this.handleYearInputChange())
-    this.#datepickerButton.removeEventListener('click', () => this.handleDatepickerButtonClick('no'))
+    this.#datepickerButton.removeEventListener('click', () => this.handleDatepickerButtonClick())
     this.#overlay.removeEventListener('click', () => this.closeDatepicker())
   }
 
@@ -142,7 +137,7 @@ export class DateInput extends HTMLElement {
     this.dispatchEvent(evt)
   }
 
-  handleDayInputChange (locale: string): void {
+  handleDayInputChange (): void {
     let formattedValue = this.#dayInput.value.replace(/\D/g, '')
 
     if (parseInt(formattedValue) > 31) {
@@ -158,7 +153,7 @@ export class DateInput extends HTMLElement {
     this.handleDateChange()
   }
 
-  handleMonthInputChange (locale: string): void {
+  handleMonthInputChange (): void {
     let formattedValue = this.#monthInput.value.replace(/\D/g, '')
 
     if (parseInt(formattedValue) > 12) {
@@ -181,7 +176,7 @@ export class DateInput extends HTMLElement {
     this.handleDateChange()
   }
 
-  handleDatepickerButtonClick (locale: string): void {
+  handleDatepickerButtonClick (): void {
     if (!this.#datepicker.classList.contains('hide')) {
       this.#datepicker.classList.add('hide')
       this.#overlay.classList.remove('visible')
@@ -191,11 +186,11 @@ export class DateInput extends HTMLElement {
     this.#datepicker.classList.remove('hide')
     this.#overlay.classList.add('visible')
 
-    this.renderCalendar(locale)
+    this.renderCalendar()
   }
 
-  handleChangeMonth (locale: string, year: number, month: number, day: number): void {
-    this.renderCalendar(locale, new Date(year, month + 1, day))
+  handleChangeMonth (year: number, month: number, day: number): void {
+    this.renderCalendar(new Date(year, month + 1, day))
   }
 
   handleDayClick (year: number, month: number, day: number): void {
@@ -211,16 +206,16 @@ export class DateInput extends HTMLElement {
     this.#overlay.classList.remove('visible')
   }
 
-  renderCalendar (locale: string, date = new Date()): void {
+  renderCalendar (date = new Date()): void {
     this.#datepickerMonth.innerHTML = ''
     this.#datepickerWeekdays.innerHTML = ''
     this.#datepickerDays.innerHTML = ''
 
-    const weekdays = locale === 'en'
+    const weekdays = this.locale === 'en'
       ? ['S', 'M', 'T', 'W', 'T', 'F', 'S']
       : ['M', 'T', 'O', 'T', 'F', 'L', 'S']
 
-    const months = locale === 'en'
+    const months = this.locale === 'en'
       ? ['Januar', 'Februar', 'Mars', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'November', 'December']
       : ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember']
     const year = date.getFullYear()
@@ -231,7 +226,8 @@ export class DateInput extends HTMLElement {
     const daysInPrevMonth = prevMonth.getDate()
     const daysInMonth = new Date(year, monthByNumber + 1, 0).getDate()
 
-    const today = new Date().getDate()
+    const today = new Date()
+    const isCurrentDateToday = (day: number): boolean => today.getMonth() === monthByNumber && today.getDate() === day
 
     // Month
     const monthTextEl = document.createElement('time')
@@ -239,16 +235,19 @@ export class DateInput extends HTMLElement {
     monthTextEl.setAttribute('datetime', `${year}-${monthByNumber}`)
     monthTextEl.setAttribute('tabindex', '-1')
     monthTextEl.innerHTML = `${monthByName} ${year}`
+    monthTextEl.setAttribute('aria-live', 'polite')
     this.#datepickerMonth.appendChild(monthTextEl)
 
     const prevMonthButton = document.createElement('button')
+    prevMonthButton.setAttribute('aria-label', this.locale === 'no' ? 'forrige måned' : 'previous month')
     prevMonthButton.classList.add('datepicker-prev-month')
-    prevMonthButton.addEventListener('click', () => this.handleChangeMonth(locale, prevMonth.getFullYear(), prevMonth.getMonth(), 0))
+    prevMonthButton.addEventListener('click', () => this.handleChangeMonth(prevMonth.getFullYear(), prevMonth.getMonth(), 0))
     this.#datepickerMonth.appendChild(prevMonthButton)
 
     const nextMonthButton = document.createElement('button')
+    nextMonthButton.setAttribute('aria-label', this.locale === 'no' ? 'neste måned' : 'next month')
     nextMonthButton.classList.add('datepicker-next-month')
-    nextMonthButton.addEventListener('click', () => this.handleChangeMonth(locale, nextMonth.getFullYear(), nextMonth.getMonth(), 0))
+    nextMonthButton.addEventListener('click', () => this.handleChangeMonth(nextMonth.getFullYear(), nextMonth.getMonth(), 0))
     this.#datepickerMonth.appendChild(nextMonthButton)
 
     // Weekdays
@@ -265,37 +264,44 @@ export class DateInput extends HTMLElement {
     // Days from previous month
     if (numberOfDaysFromPreviousMonth > 0) {
       for (let i = (daysInPrevMonth - numberOfDaysFromPreviousMonth); i <= daysInPrevMonth; i++) {
+        const buttonEl = document.createElement('button')
         const timeEl = document.createElement('time')
-        timeEl.setAttribute('tabindex', '-1')
+
         timeEl.innerHTML = i.toString()
-        timeEl.classList.add('datepicker-day', 'datepicker-day-previous-month')
-        timeEl.setAttribute('datetime', `${prevMonth.getFullYear()}-${prevMonth.getMonth()}-${i}`)
-        timeEl.addEventListener('click', () => this.handleDayClick(prevMonth.getFullYear(), prevMonth.getMonth(), i))
-        this.#datepickerDays.appendChild(timeEl)
+        buttonEl.classList.add('datepicker-day', 'datepicker-day-previous-month')
+        timeEl.setAttribute('datetime', `${prevMonth.getFullYear()}-${prevMonth.getMonth() + 1}-${i}`)
+        buttonEl.addEventListener('click', () => this.handleDayClick(prevMonth.getFullYear(), prevMonth.getMonth(), i))
+        buttonEl.appendChild(timeEl)
+        this.#datepickerDays.appendChild(buttonEl)
       }
     }
 
     // Days in current month
     for (let i = 1; i <= daysInMonth; i++) {
+      const buttonEl = document.createElement('button')
       const timeEl = document.createElement('time')
-      timeEl.setAttribute('tabindex', '-1')
+
       timeEl.innerHTML = i.toString()
-      timeEl.classList.add('datepicker-day')
-      today === i && timeEl.classList.add('datepicker-today')
-      timeEl.setAttribute('datetime', `${year}-${monthByNumber}-${i}`)
-      timeEl.addEventListener('click', () => this.handleDayClick(year, monthByNumber, i))
-      this.#datepickerDays.appendChild(timeEl)
+      buttonEl.classList.add('datepicker-day')
+      isCurrentDateToday(i) && buttonEl.classList.add('datepicker-today')
+      timeEl.setAttribute('datetime', `${year}-${monthByNumber + 1}-${i}`)
+      buttonEl.addEventListener('click', () => this.handleDayClick(year, monthByNumber, i))
+      buttonEl.appendChild(timeEl)
+      this.#datepickerDays.appendChild(buttonEl)
     }
 
     // Days in next month
+    // TODO: Fix number of days
     for (let i = 1; i <= numberOfDaysFromNextMonth; i++) {
+      const buttonEl = document.createElement('button')
       const timeEl = document.createElement('time')
-      timeEl.setAttribute('tabindex', '-1')
+
       timeEl.innerHTML = i.toString()
-      timeEl.classList.add('datepicker-day', 'datepicker-day-next-month')
-      timeEl.setAttribute('datetime', `${nextMonth.getFullYear()}-${nextMonth.getMonth()}-${i}`)
-      timeEl.addEventListener('click', () => this.handleDayClick(nextMonth.getFullYear(), nextMonth.getMonth(), i))
-      this.#datepickerDays.appendChild(timeEl)
+      buttonEl.classList.add('datepicker-day', 'datepicker-day-next-month')
+      timeEl.setAttribute('datetime', `${nextMonth.getFullYear()}-${nextMonth.getMonth() + 1}-${i}`)
+      buttonEl.addEventListener('click', () => this.handleDayClick(nextMonth.getFullYear(), nextMonth.getMonth(), i))
+      buttonEl.appendChild(timeEl)
+      this.#datepickerDays.appendChild(buttonEl)
     }
   }
 

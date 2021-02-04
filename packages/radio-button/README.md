@@ -21,6 +21,7 @@ npm install --save @ui-components/radio-button
 | Props        | Observable         | Default | Description                                                                                   |
 | ------------ | ------------------ | ------- | --------------------------------------------------------------------------------------------- |
 | errormessage | :heavy_check_mark: |         | Adds a red border on input if set and show the error message below. Also handles aria-invalid |
+| inline       |                    | false   | Displays radiobuttons inline. Default is vertical.                                            |
 
 | Methods      | Description  |
 | ------------ | ------------ |

@@ -21,28 +21,28 @@ describe('Number input', () => {
   })
 
   it('should set attribute', () => {
-    textInputEl.setAttribute('arialabel', 'This is aria-label')
+    textInputEl.setAttribute('data-aria-label', 'This is aria-label')
     expect(input.getAttribute('aria-label')).toBe('This is aria-label')
 
-    textInputEl.setAttribute('arialabelledby', 'This is aria-labelledby')
+    textInputEl.setAttribute('data-aria-labelledby', 'This is aria-labelledby')
     expect(input.getAttribute('aria-labelledby')).toBe('This is aria-labelledby')
 
-    textInputEl.setAttribute('placeholder', 'This is placeholder')
+    textInputEl.setAttribute('data-placeholder', 'This is placeholder')
     expect(input.getAttribute('placeholder')).toBe('This is placeholder')
 
-    textInputEl.setAttribute('autocomplete', 'This is autocomplete')
+    textInputEl.setAttribute('data-autocomplete', 'This is autocomplete')
     expect(input.getAttribute('autocomplete')).toBe('This is autocomplete')
 
-    textInputEl.setAttribute('maxlength', 'This is maxlength')
+    textInputEl.setAttribute('data-maxlength', 'This is maxlength')
     expect(input.getAttribute('maxlength')).toBe('This is maxlength')
 
-    textInputEl.setAttribute('minlength', 'This is minlength')
+    textInputEl.setAttribute('data-minlength', 'This is minlength')
     expect(input.getAttribute('minlength')).toBe('This is minlength')
 
-    textInputEl.setAttribute('readonly', 'true')
+    textInputEl.setAttribute('data-readonly', 'true')
     expect(input.hasAttribute('readonly')).toBeTruthy()
 
-    textInputEl.setAttribute('spellcheck', 'true')
+    textInputEl.setAttribute('data-spellcheck', 'true')
     expect(input.hasAttribute('spellcheck')).toBeTruthy()
   })
 

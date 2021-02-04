@@ -35,6 +35,6 @@ npm install --save @ui-components/amount-input
 
 ## Event
 
-| Event    | Return type | Description             |
-| -------- | ----------- | ----------------------- |
-| onchange | string      | Returns 500.00 as 50000 |
+| Event    | Format                  |
+| -------- | ----------------------- |
+| onchange | Returns 500.00 as 50000 |

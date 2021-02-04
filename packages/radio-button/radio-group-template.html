@@ -44,7 +44,7 @@
     height: 1.25rem;
     width: 1.25rem;
     background: var(--ui-background);
-    border: solid 0.15rem var(--ui-border);
+    border: solid 0.1rem var(--ui-border);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -61,6 +61,7 @@
   label:hover::before,
   input:checked + label::before {
     border-color: var(--ui-primary);
+    border-width: 0.15rem;
   }
   label.error::before {
     border-color: var(--ui-error);

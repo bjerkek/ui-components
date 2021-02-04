@@ -120,7 +120,7 @@ export class Dropdown extends HTMLElement {
       return
     }
 
-    if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'Enter') {
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'Enter' || event.key === 'Home' || event.key === 'End') {
       const selected = this.#optionsWrapper.querySelector('.selected') as HTMLDivElement
       const options = Array.from(this.#optionsWrapper.querySelectorAll('.option'))
 
@@ -142,19 +142,28 @@ export class Dropdown extends HTMLElement {
 
       // Arrow down key
       if (event.key === 'ArrowDown' && selected && nextIndex < options.length) {
-        options[selectedIndex].classList.remove('selected')
+        options[selectedIndex]?.classList.remove('selected')
         options[nextIndex].classList.add('selected')
         return
       }
 
       // Arrow up key
       if (event.key === 'ArrowUp' && selected && prevIndex >= 0) {
-        options[selectedIndex].classList.remove('selected')
+        options[selectedIndex]?.classList.remove('selected')
         options[prevIndex].classList.add('selected')
       }
 
       // Home
+      if (event.key === 'Home') {
+        options[selectedIndex]?.classList.remove('selected')
+        options[0].classList.add('selected')
+      }
+
       // End
+      if (event.key === 'End') {
+        options[selectedIndex]?.classList.remove('selected')
+        options[this.#array.length - 1].classList.add('selected')
+      }
     }
   }
 

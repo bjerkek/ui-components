@@ -74,18 +74,9 @@ export class Dropdown extends HTMLElement {
   }
 
   handleInputChange (): void {
-    let options = [...this.#array]
     const value = this.#input.getAttribute('data-value')!
 
-    if (this.isSearchable) {
-      options = this.isSubtitleSearchable
-        ? this.#array.filter(option => option.name.toLowerCase().includes(value.toLowerCase()) || option.subtitle.toLowerCase().includes(value.toLowerCase()))
-        : this.#array.filter(option => option.name.toLowerCase().includes(value.toLowerCase()))
-    }
-
-    const isSearchEmpty = options.length < 1
-
-    this.renderDropdown(isSearchEmpty)
+    this.renderDropdown()
 
     const evt = new CustomEvent('onChange', {
       detail: {
@@ -97,7 +88,7 @@ export class Dropdown extends HTMLElement {
     this.dispatchEvent(evt)
 
     const selectedOption = this.#optionsWrapper.querySelector('[aria-selected="true"]')!
-    this.#container.setAttribute('aria-activedescendant', selectedOption.id)
+    this.#container.setAttribute('aria-activedescendant', selectedOption?.id || '')
   }
 
   handleInputClick (): void {
@@ -243,17 +234,25 @@ export class Dropdown extends HTMLElement {
     }
   }
 
-  renderDropdown (isSearchEmpty = false): void {
+  renderDropdown (): void {
     this.#optionsWrapper.textContent = ''
 
-    if (isSearchEmpty && this.hasAttribute('emptysearchtext')) {
+    let options = [...this.#array]
+
+    if (this.isSearchable) {
+      options = this.isSubtitleSearchable
+        ? this.#array.filter(option => option.name.toLowerCase().includes(this.#input.value.toLowerCase()) || option.subtitle.toLowerCase().includes(this.#input.value.toLowerCase()))
+        : this.#array.filter(option => option.name.toLowerCase().includes(this.#input.value.toLowerCase()))
+    }
+
+    if (options.length < 1 && this.hasAttribute('emptysearchtext')) {
       const emptyEl = emptySearchTemplate.content.cloneNode(true) as HTMLDivElement
       emptyEl.querySelector('.empty-search')!.innerHTML = this.emptysearchtext
       this.#optionsWrapper.append(emptyEl)
       return
     }
 
-    this.#array.forEach(({ value, name, subtitle }, i) => {
+    options.forEach(({ value, name, subtitle }, i) => {
       const optionEl = optionTemplate.content.cloneNode(true) as HTMLDivElement
 
       const nameEl = optionEl.querySelector('.option')! as HTMLDivElement

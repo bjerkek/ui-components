@@ -10,8 +10,8 @@ npm install --save @ui-components/dropdown
 
 ```
 <ui-dropdown>
-  <ui-dropdown-option>Option 1</ui-dropdown-option>
-  <ui-dropdown-option>Option 2</ui-dropdown-option>
+  <ui-dropdown-option value="option_1">Option 1</ui-dropdown-option>
+  <ui-dropdown-option value="option_2">Option 2</ui-dropdown-option>
 </ui-dropdown>
 ```
 
@@ -31,8 +31,8 @@ npm install --save @ui-components/dropdown
 
 ## Props and methods ui-dropdown-option
 
-| Props    | Observable | Default | Description |
-| -------- | ---------- | ------- | ----------- |
-| selected |            |         |             |
-| value    |            |         |             |
-| subtitle |            |         |             |
+| Props           | Observable | Default | Description |
+| --------------- | ---------- | ------- | ----------- |
+| defaultselected |            |         |             |
+| value           |            |         |             |
+| subtitle        |            |         |             |

@@ -195,6 +195,11 @@ export class Dropdown extends HTMLElement {
         subtitle: option.getAttribute('subtitle') || ''
       })
 
+      // Default selected
+      if (option.hasAttribute('defaultselected')) {
+        this.#input.value = option.innerHTML
+      }
+
       this.removeChild(option)
     })
 
@@ -264,6 +269,7 @@ export class Dropdown extends HTMLElement {
 
       if (this.#input.getAttribute('data-value') === value) {
         nameEl.setAttribute('aria-selected', 'true')
+        nameEl.classList.add('selected')
       }
 
       if (subtitle && subtitle.length > 0) {

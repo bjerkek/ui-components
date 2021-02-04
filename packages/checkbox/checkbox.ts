@@ -34,13 +34,13 @@ export class Checkbox extends HTMLElement {
 
   reset (): void {
     this.#input.checked = false
-    this.handleInputChange(false)
+    this.handleInputChange()
   }
 
-  handleInputChange (checked: boolean): void {
+  handleInputChange (): void {
     const evt = new CustomEvent('onchange', {
       detail: {
-        value: checked
+        value: this.#input.checked
       },
       bubbles: true,
       composed: true
@@ -49,7 +49,7 @@ export class Checkbox extends HTMLElement {
   }
 
   connectedCallback (): void {
-    this.#input.addEventListener('input', () => this.handleInputChange(this.#input.checked))
+    this.#input.addEventListener('input', () => this.handleInputChange())
 
     if (this.inline) {
       this.classList.add('inline')
@@ -58,18 +58,18 @@ export class Checkbox extends HTMLElement {
 
     if (this.defaultchecked) {
       this.#input.checked = true
-      this.handleInputChange(true)
+      this.handleInputChange()
     }
   }
 
   disconnectedCallback (): void {
-    this.#input.removeEventListener('input', () => this.handleInputChange(this.#input.checked))
+    this.#input.removeEventListener('input', () => this.handleInputChange())
   }
 
   static get observedAttributes (): string[] {
     return [
-      'arialabel',
-      'arialabelledby',
+      'data-aria-label',
+      'data-aria-labelledby',
       'errormessage'
     ]
   }
@@ -77,12 +77,12 @@ export class Checkbox extends HTMLElement {
   attributeChangedCallback (attrName: string, oldVal: string, newVal: string): void {
     if (newVal !== oldVal) {
       switch (attrName) {
-        case 'arialabel':
+        case 'data-aria-label':
           newVal
             ? this.#input.setAttribute('aria-label', newVal)
             : this.#input.removeAttribute('aria-label')
           break
-        case 'arialabelledby':
+        case 'data-aria-labelledby':
           newVal
             ? this.#input.setAttribute('aria-labelledby', newVal)
             : this.#input.removeAttribute('aria-labelledby')

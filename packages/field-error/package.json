@@ -1,0 +1,19 @@
+{
+  "name": "@ui-components/field-error",
+  "version": "0.0.1",
+  "description": "Field error as web component",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjerkek/ui-components/packages/field-error"
+  },
+  "keywords": [
+    "ui-components/field-error",
+    "web-components",
+    "field-error"
+  ],
+  "author": "Bjerkek AS",
+  "license": "MIT"
+}

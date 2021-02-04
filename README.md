@@ -1,4 +1,5 @@
 # ui-components
+
 UI components as Web Components
 
 ```
@@ -16,8 +17,8 @@ UI components as Web Components
   --ui-dark-border: #ced6e0;
   --ui-dark-background: #2d3242;
   --ui-dark-text: #FFF;
-  /* --ui-font-monospace
-  --ui-font-regular */
+  --ui-font-monospace:;
+  --ui-font-regular:;
 }
 ```
 
@@ -42,3 +43,5 @@ UI components as Web Components
 [@ui-components/textarea](/packages/textarea/)
 
 [@ui-components/radio-button](/packages/radio-button/)
+
+[@ui-components/field-error](/packages/field-error/)

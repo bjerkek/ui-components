@@ -10,7 +10,7 @@ describe('Textarea', () => {
   beforeAll(() => {
     window.customElements.define(tagName, Textarea)
     textareaEl = document.createElement(tagName)
-    textareaEl.setAttribute('maxlength', '900')
+    textareaEl.setAttribute('data-maxlength', '900')
     document.body.appendChild(textareaEl)
 
     const { getByTestId } = within(textareaEl.shadowRoot)

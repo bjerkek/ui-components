@@ -24,19 +24,23 @@ export class Textarea extends HTMLElement {
     this.#counter = this.#shadowRoot.querySelector('div')!
   }
 
+  get defaultvalue (): string {
+    return this.getAttribute('defaultvalue') || ''
+  }
+
   get maxlength (): string {
-    return this.getAttribute('maxlength') || ''
+    return this.getAttribute('data-maxlength') || ''
   }
 
   reset (): void {
     this.#textarea.value = ''
-    this.handleTextareaChange('')
+    this.handleTextareaChange()
   }
 
-  handleTextareaChange (value: string): void {
-    const evt = new CustomEvent('onChange', {
+  handleTextareaChange (): void {
+    const evt = new CustomEvent('onchange', {
       detail: {
-        value
+        value: this.#textarea.value.toString()
       },
       bubbles: true,
       composed: true
@@ -44,34 +48,36 @@ export class Textarea extends HTMLElement {
     this.dispatchEvent(evt)
   }
 
-  setCounter (maxLength: number, textLength: number): void {
-    this.#counter.innerHTML = (maxLength - textLength).toString()
+  setCounter (): void {
+    this.#counter.innerHTML = (parseInt(this.maxlength) - this.#textarea.value.length).toString()
   }
 
   connectedCallback (): void {
+    this.#textarea.value = this.defaultvalue
+
     if (this.maxlength) {
       this.#counter.classList.remove('hide')
       this.#textarea.setAttribute('maxlength', this.maxlength)
       this.#counter.innerHTML = this.maxlength
-      this.#textarea.addEventListener('input', () => this.setCounter(parseInt(this.maxlength), this.#textarea.value.length))
+      this.#textarea.addEventListener('input', () => this.setCounter())
     }
 
-    this.#textarea.addEventListener('input', () => this.handleTextareaChange(this.#textarea.value.toString()))
+    this.#textarea.addEventListener('input', () => this.handleTextareaChange())
   }
 
   disconnectedCallback (): void {
-    this.#textarea.removeEventListener('input', () => this.handleTextareaChange(this.#textarea.value.toString()))
+    this.#textarea.removeEventListener('input', () => this.handleTextareaChange())
     if (this.maxlength) {
-      this.#textarea.removeEventListener('input', () => this.setCounter(parseInt(this.maxlength), this.#textarea.value.length))
+      this.#textarea.removeEventListener('input', () => this.setCounter())
     }
   }
 
   static get observedAttributes (): string[] {
     return [
-      'arialabel',
-      'arialabelledby',
-      'readonly',
-      'spellcheck',
+      'data-aria-label',
+      'data-aria-labelledby',
+      'data-readonly',
+      'data-spellcheck',
       'errormessage'
     ]
   }
@@ -79,20 +85,24 @@ export class Textarea extends HTMLElement {
   attributeChangedCallback (attrName: string, oldVal: string, newVal: string) {
     if (newVal !== oldVal) {
       switch (attrName) {
-        case 'arialabel':
+        case 'data-aria-label':
           newVal
             ? this.#textarea.setAttribute('aria-label', newVal)
             : this.#textarea.removeAttribute('aria-label')
           break
-        case 'arialabelledby':
+        case 'data-aria-labelledby':
           newVal
             ? this.#textarea.setAttribute('aria-labelledby', newVal)
             : this.#textarea.removeAttribute('aria-labelledby')
           break
-        case 'readonly':
-        case 'spellcheck':
+        case 'data-readonly':
           newVal === '' || newVal === 'true'
-            ? this.#textarea.setAttribute(attrName, '')
+            ? this.#textarea.setAttribute('readonly', '')
+            : this.#textarea.removeAttribute(attrName)
+          break
+        case 'data-spellcheck':
+          newVal === '' || newVal === 'true'
+            ? this.#textarea.setAttribute('spellcheck', '')
             : this.#textarea.removeAttribute(attrName)
           break
         case 'errormessage':

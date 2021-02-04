@@ -10,7 +10,7 @@ errorTemplate.innerHTML = ErrorTemplate
 
 const optionTemplate = document.createElement('template')
 optionTemplate.innerHTML = `
-  <div class="option"></div>
+  <div class="option" role="option"></div>
 `
 
 const subTitleTemplate = document.createElement('template')
@@ -27,6 +27,7 @@ export const tagName = 'ui-dropdown'
 
 export class Dropdown extends HTMLElement {
   #shadowRoot: ShadowRoot
+  #container: HTMLDivElement
   #input: HTMLInputElement
   #optionsWrapper: HTMLDivElement
   #arrowButton: HTMLButtonElement
@@ -47,6 +48,7 @@ export class Dropdown extends HTMLElement {
     this.#optionsWrapper = this.#shadowRoot.querySelector('.options')! as HTMLDivElement
     this.#arrowButton = this.#shadowRoot.querySelector('#arrowButton')! as HTMLButtonElement
     this.#overlay = this.#shadowRoot.querySelector('.overlay')! as HTMLDivElement
+    this.#container = this.#shadowRoot.querySelector('[role="listbox"]')! as HTMLDivElement
 
     this.#array = []
   }
@@ -71,9 +73,9 @@ export class Dropdown extends HTMLElement {
     this.#input.value = ''
   }
 
-  handleInputChange (value: string): void {
-    // let options = []
+  handleInputChange (): void {
     let options = [...this.#array]
+    const value = this.#input.getAttribute('data-value')!
 
     if (this.isSearchable) {
       options = this.isSubtitleSearchable
@@ -93,6 +95,9 @@ export class Dropdown extends HTMLElement {
       composed: true
     })
     this.dispatchEvent(evt)
+
+    const selectedOption = this.#optionsWrapper.querySelector('[aria-selected="true"]')!
+    this.#container.setAttribute('aria-activedescendant', selectedOption.id)
   }
 
   handleInputClick (): void {
@@ -139,7 +144,6 @@ export class Dropdown extends HTMLElement {
       if (event.key === 'ArrowDown' && selected && nextIndex < options.length) {
         options[selectedIndex].classList.remove('selected')
         options[nextIndex].classList.add('selected')
-        options[nextIndex].scrollIntoView({ block: 'center' })
         return
       }
 
@@ -147,8 +151,10 @@ export class Dropdown extends HTMLElement {
       if (event.key === 'ArrowUp' && selected && prevIndex >= 0) {
         options[selectedIndex].classList.remove('selected')
         options[prevIndex].classList.add('selected')
-        options[nextIndex].scrollIntoView({ block: 'center' })
       }
+
+      // Home
+      // End
     }
   }
 
@@ -164,7 +170,7 @@ export class Dropdown extends HTMLElement {
     this.#input.setAttribute('data-value', value)
     this.toggleDropdown()
 
-    this.handleInputChange(value)
+    this.handleInputChange()
   }
 
   connectedCallback (): void {
@@ -172,7 +178,7 @@ export class Dropdown extends HTMLElement {
 
     // Searchable
     if (this.isSearchable) {
-      this.#input.addEventListener('input', () => this.handleInputChange(this.#input.value.toString()))
+      this.#input.addEventListener('input', () => this.handleInputChange())
 
       if (this.placeholder.length > 0) {
         this.#input.setAttribute('placeholder', this.placeholder)
@@ -194,13 +200,6 @@ export class Dropdown extends HTMLElement {
 
     this.renderDropdown()
 
-    // document.addEventListener('click', event => {
-    //   const isOutside = !event.target.closest('ui-dropdown')
-    //   if (isOutside && this.#optionsWrapper.classList.contains('open')) {
-    //     this.toggleDropdown(elements)
-    //   }
-    // })
-
     this.#input.addEventListener('click', () => this.handleInputClick())
     this.#input.addEventListener('keydown', event => this.handleInputKeyDown(event))
     this.#arrowButton.addEventListener('click', () => this.handleArrowButtonClick())
@@ -209,7 +208,7 @@ export class Dropdown extends HTMLElement {
 
   disconnectedCallback (): void {
     if (this.isSearchable) {
-      this.#input.removeEventListener('input', () => this.handleInputChange(this.#input.value.toString()))
+      this.#input.removeEventListener('input', () => this.handleInputChange())
     }
     this.#input.removeEventListener('click', () => this.handleInputClick())
     this.#input.removeEventListener('keydown', event => this.handleInputKeyDown(event))
@@ -249,10 +248,15 @@ export class Dropdown extends HTMLElement {
       const optionEl = optionTemplate.content.cloneNode(true) as HTMLDivElement
 
       const nameEl = optionEl.querySelector('.option')! as HTMLDivElement
+      nameEl.id = `option_${i}`
       nameEl.innerHTML = name
       nameEl.setAttribute('data-value', value)
 
       nameEl.addEventListener('click', () => this.handleOptionClick(nameEl))
+
+      if (this.#input.getAttribute('data-value') === value) {
+        nameEl.setAttribute('aria-selected', 'true')
+      }
 
       if (subtitle && subtitle.length > 0) {
         const subTitleEl = subTitleTemplate.content.cloneNode(true) as HTMLDivElement
@@ -272,6 +276,7 @@ export class Dropdown extends HTMLElement {
   }
 
   toggleDropdown (): void {
+    this.#arrowButton.setAttribute('aria-expanded', this.#arrowButton.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')
     this.#optionsWrapper.classList.toggle('open')
     this.#arrowButton.classList.toggle('open')
     this.#overlay.classList.toggle('visible')

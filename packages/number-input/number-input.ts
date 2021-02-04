@@ -22,15 +22,23 @@ export class NumberInput extends HTMLElement {
     this.#input = this.#shadowRoot.querySelector('input')!
   }
 
-  reset (): void {
-    this.#input.value = ''
-    this.handleInputChange('')
+  get removeLeadingZero (): boolean {
+    return this.hasAttribute('removeleadingzero')
   }
 
-  handleInputChange (value: string, removeLeadingZero: boolean = false): void {
-    let formattedValue = value.replace(/\D/g, '')
+  get defaultvalue (): string {
+    return this.getAttribute('defaultvalue') || ''
+  }
 
-    if (removeLeadingZero) {
+  reset (): void {
+    this.#input.value = ''
+    this.handleInputChange()
+  }
+
+  handleInputChange (): void {
+    let formattedValue = this.#input.value.replace(/\D/g, '')
+
+    if (this.removeLeadingZero) {
       formattedValue = formattedValue.startsWith('0') && formattedValue.length > 1 ? formattedValue.slice(1) : formattedValue
     }
 
@@ -48,34 +56,24 @@ export class NumberInput extends HTMLElement {
   }
 
   connectedCallback (): void {
-    let removeLeadingZero = false
-
-    if (this.hasAttribute('removeleadingzero')) {
-      removeLeadingZero = true
-    }
-
-    this.#input.addEventListener('input', () => this.handleInputChange(this.#input.value, removeLeadingZero))
-
-    // if (this.hasAttribute('defaultvalue')) {
-    //     const defaultvalue = this.#input.value = this.getAttribute('defaultvalue')
-    //     this.handleInputChange(defaultvalue, removeLeadingZero)
-    // }
+    this.#input.value = this.defaultvalue.replace(/\D/g, '')
+    this.#input.addEventListener('input', () => this.handleInputChange())
   }
 
   disconnectedCallback (): void {
-    this.#input.removeEventListener('input', () => this.handleInputChange(this.#input.value))
+    this.#input.removeEventListener('input', () => this.handleInputChange())
   }
 
   static get observedAttributes (): string[] {
     return [
-      'arialabel',
-      'arialabelledby',
-      'placeholder',
-      'autocomplete',
-      'maxlength',
-      'minlength',
-      'readonly',
-      'spellcheck',
+      'data-aria-label',
+      'data-aria-labelledby',
+      'data-placeholder',
+      'data-autocomplete',
+      'data-maxlength',
+      'data-minlength',
+      'data-readonly',
+      'data-spellcheck',
       'errormessage'
     ]
   }
@@ -83,28 +81,44 @@ export class NumberInput extends HTMLElement {
   attributeChangedCallback (attrName: string, oldVal: string, newVal: string): void {
     if (newVal !== oldVal) {
       switch (attrName) {
-        case 'arialabel':
+        case 'data-aria-label':
           newVal
             ? this.#input.setAttribute('aria-label', newVal)
             : this.#input.removeAttribute('aria-label')
           break
-        case 'arialabelledby':
+        case 'data-aria-labelledby':
           newVal
             ? this.#input.setAttribute('aria-labelledby', newVal)
             : this.#input.removeAttribute('aria-labelledby')
           break
-        case 'placeholder':
-        case 'autocomplete':
-        case 'maxlength':
-        case 'minlength':
+        case 'data-placeholder':
           newVal
-            ? this.#input.setAttribute(attrName, newVal)
+            ? this.#input.setAttribute('placeholder', newVal)
             : this.#input.removeAttribute(attrName)
           break
-        case 'readonly':
-        case 'spellcheck':
+        case 'data-autocomplete':
+          newVal
+            ? this.#input.setAttribute('autocomplete', newVal)
+            : this.#input.removeAttribute(attrName)
+          break
+        case 'data-maxlength':
+          newVal
+            ? this.#input.setAttribute('maxlength', newVal)
+            : this.#input.removeAttribute(attrName)
+          break
+        case 'data-minlength':
+          newVal
+            ? this.#input.setAttribute('minlength', newVal)
+            : this.#input.removeAttribute(attrName)
+          break
+        case 'data-readonly':
           newVal === '' || newVal === 'true'
-            ? this.#input.setAttribute(attrName, '')
+            ? this.#input.setAttribute('readonly', '')
+            : this.#input.removeAttribute(attrName)
+          break
+        case 'data-spellcheck':
+          newVal === '' || newVal === 'true'
+            ? this.#input.setAttribute('spellcheck', '')
             : this.#input.removeAttribute(attrName)
           break
         case 'errormessage':

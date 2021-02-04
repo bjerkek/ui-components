@@ -21,7 +21,7 @@
   --ui-dark-background: #2d3242;
   --ui-dark-text: #FFF;
   --ui-font-monospace: 'Courier New', Courier, monospace;
-  --ui-font-regular: 'Courier New', Courier, monospace;
+  --ui-font-regular: Arial, Helvetica, sans-serif;
 }
 
 html, body {
@@ -47,9 +47,11 @@ input {
 
   <ui-text-input></ui-text-input>
   <ui-amount-input></ui-amount-input>
-  <ui-amount-input data-id="myId"></ui-amount-input>
+  <ui-amount-input data-id="myId" errormessage="sdfsdfsd sdf sds ddsf "></ui-amount-input>
   <ui-button kind="primary">my button</ui-button>
-  <ui-button kind="primary" disabled>my button</ui-button>
+  <ui-button kind="danger" data-disabled>my button</ui-button>
+  <ui-button kind="default" data-disabled>my button</ui-button>
+  <ui-button kind="link">my button</ui-button>
   <ui-checkbox defaultchecked>Label</ui-checkbox>
   <br /><br />
   <ui-date-input></ui-date-input>

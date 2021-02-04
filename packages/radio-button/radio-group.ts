@@ -25,10 +25,6 @@ export class RadioGroup extends HTMLElement {
     this.#radioButtons = Array.from(this.querySelectorAll('ui-radio-button'))
   }
 
-  get name (): string {
-    return this.getAttribute('name') || 'ui-radio-button'
-  }
-
   get inline (): boolean {
     return this.hasAttribute('inline')
   }
@@ -41,7 +37,7 @@ export class RadioGroup extends HTMLElement {
       const label = radioEl.querySelector('label')! as HTMLLabelElement
 
       input.id = `ui-radio-input-${index}`
-      input.name = this.name
+      input.name = 'ui-radio-button'
       input.value = radio.getAttribute('value') || ''
 
       label.innerHTML = radio.innerHTML

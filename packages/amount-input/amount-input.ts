@@ -29,6 +29,10 @@ export class AmountInput extends HTMLElement {
     this.#input = this.#shadowRoot.querySelector('input')!
   }
 
+  get id (): string {
+    return this.getAttribute('data-id') || ''
+  }
+
   get locale (): string {
     return this.getAttribute('locale') || 'no'
   }
@@ -101,6 +105,10 @@ export class AmountInput extends HTMLElement {
   }
 
   connectedCallback (): void {
+    if (this.id) {
+      this.#input.id = this.id
+    }
+
     this.#input.addEventListener('input', () => this.handleInputChange(this.#input.value))
 
     if (this.hasAttribute('defaultvalue')) {

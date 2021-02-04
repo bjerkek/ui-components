@@ -22,6 +22,10 @@ export class NumberInput extends HTMLElement {
     this.#input = this.#shadowRoot.querySelector('input')!
   }
 
+  get id (): string {
+    return this.getAttribute('data-id') || ''
+  }
+
   get removeLeadingZero (): boolean {
     return this.hasAttribute('removeleadingzero')
   }
@@ -56,6 +60,10 @@ export class NumberInput extends HTMLElement {
   }
 
   connectedCallback (): void {
+    if (this.id) {
+      this.#input.id = this.id
+    }
+
     this.#input.value = this.defaultvalue.replace(/\D/g, '')
     this.#input.addEventListener('input', () => this.handleInputChange())
   }

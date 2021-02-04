@@ -16,6 +16,7 @@ npm install --save @ui-components/text-input
 
 | Props                | Observable         | Default | Description                                                                                   |
 | -------------------- | ------------------ | ------- | --------------------------------------------------------------------------------------------- |
+| data-id              |                    |         | Adds id attribute to the input field.                                                         |
 | errormessage         | :heavy_check_mark: |         | Adds a red border on input if set and show the error message below. Also handles aria-invalid |
 | defaultvalue         |                    |         | Sets the initial value                                                                        |
 | data-placeholder     | :heavy_check_mark: |         | Adds placeholder attribute                                                                    |

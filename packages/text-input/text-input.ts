@@ -22,6 +22,10 @@ export class TextInput extends HTMLElement {
     this.#input = this.#shadowRoot.querySelector('input')!
   }
 
+  get id (): string {
+    return this.getAttribute('data-id') || ''
+  }
+
   get defaultvalue (): string {
     return this.getAttribute('defaultvalue') || ''
   }
@@ -43,6 +47,10 @@ export class TextInput extends HTMLElement {
   }
 
   connectedCallback (): void {
+    if (this.id) {
+      this.#input.id = this.id
+    }
+
     this.#input.value = this.defaultvalue
     this.#input.addEventListener('input', () => this.handleInputChange())
   }

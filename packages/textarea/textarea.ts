@@ -24,6 +24,10 @@ export class Textarea extends HTMLElement {
     this.#counter = this.#shadowRoot.querySelector('div')!
   }
 
+  get id (): string {
+    return this.getAttribute('data-id') || ''
+  }
+
   get defaultvalue (): string {
     return this.getAttribute('defaultvalue') || ''
   }
@@ -53,6 +57,10 @@ export class Textarea extends HTMLElement {
   }
 
   connectedCallback (): void {
+    if (this.id) {
+      this.#textarea.id = this.id
+    }
+
     this.#textarea.value = this.defaultvalue
 
     if (this.maxlength) {

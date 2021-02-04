@@ -53,6 +53,10 @@ export class Dropdown extends HTMLElement {
     this.#array = []
   }
 
+  get id (): string {
+    return this.getAttribute('data-id') || ''
+  }
+
   get isSearchable (): boolean {
     return this.hasAttribute('searchable')
   }
@@ -174,6 +178,10 @@ export class Dropdown extends HTMLElement {
   }
 
   connectedCallback (): void {
+    if (this.id) {
+      this.#input.id = this.id
+    }
+
     const options = Array.from(this.querySelectorAll('ui-dropdown-option'))
 
     // Searchable

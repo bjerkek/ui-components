@@ -50,6 +50,10 @@ export class DateInput extends HTMLElement {
     this.#overlay = this.#shadowRoot.querySelector('.overlay')! as HTMLDivElement
   }
 
+  get id (): string {
+    return this.getAttribute('data-id') || ''
+  }
+
   get locale (): string {
     return this.getAttribute('locale') || 'no'
   }
@@ -59,6 +63,10 @@ export class DateInput extends HTMLElement {
   }
 
   connectedCallback (): void {
+    if (this.id) {
+      this.#inputContainer.id = this.id
+    }
+
     this.hidepicker &&
       this.#datepickerButton.classList.add('hide')
 

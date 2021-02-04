@@ -19,6 +19,7 @@ npm install --save @ui-components/dropdown
 
 | Props              | Observable         | Default | Description                                                                                   |
 | ------------------ | ------------------ | ------- | --------------------------------------------------------------------------------------------- |
+| data-id            |                    |         | Adds id attribute to the input field.                                                         |
 | errormessage       | :heavy_check_mark: |         | Adds a red border on input if set and show the error message below. Also handles aria-invalid |
 | placeholder        | :heavy_check_mark: |         |                                                                                               |
 | searchable         |                    | false   | Makes the dropdown options searchable                                                         |

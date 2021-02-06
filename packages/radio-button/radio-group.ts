@@ -1,9 +1,9 @@
 import RadioGroupTemplate from './radio-group-template.html'
 import RadioButtonTemplate from './radio-button-template.html'
-import ErrorTemplate from './error-template.html'
+import FieldErrorTemplate from './field-error-template.html'
 
-const errorTemplate = document.createElement('template')
-errorTemplate.innerHTML = ErrorTemplate
+const fieldErrorTemplate = document.createElement('template')
+fieldErrorTemplate.innerHTML = FieldErrorTemplate
 
 const template = document.createElement('template')
 template.innerHTML = RadioGroupTemplate
@@ -103,7 +103,7 @@ export class RadioGroup extends HTMLElement {
       element.classList.add('error')
     })
 
-    this.#shadowRoot.appendChild(errorTemplate.content.cloneNode(true))
+    this.#shadowRoot.appendChild(fieldErrorTemplate.content.cloneNode(true))
 
     this.#shadowRoot.querySelector('p')!.innerText = errorMessage
   }

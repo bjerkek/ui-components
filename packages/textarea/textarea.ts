@@ -1,9 +1,9 @@
 import TextareaTemplate from './textarea-template.html'
 import BaseInputStyles from './base-input-style.html'
-import ErrorTemplate from './error-template.html'
+import FieldErrorTemplate from './field-error-template.html'
 
-const errorTemplate = document.createElement('template')
-errorTemplate.innerHTML = ErrorTemplate
+const fieldErrorTemplate = document.createElement('template')
+fieldErrorTemplate.innerHTML = FieldErrorTemplate
 
 const template = document.createElement('template')
 template.innerHTML = BaseInputStyles + TextareaTemplate
@@ -128,7 +128,7 @@ export class Textarea extends HTMLElement {
     this.#textarea.classList.add('error')
     this.#textarea.setAttribute('aria-invalid', 'true')
 
-    this.#shadowRoot.appendChild(errorTemplate.content.cloneNode(true))
+    this.#shadowRoot.appendChild(fieldErrorTemplate.content.cloneNode(true))
 
     this.#shadowRoot.querySelector('p')!.innerText = errorMessage
   }

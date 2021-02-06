@@ -1,11 +1,11 @@
 import CheckboxTemplate from './checkbox-template.html'
-import ErrorTemplate from './error-template.html'
+import FieldErrorTemplate from './field-error-template.html'
 
 const template = document.createElement('template')
 template.innerHTML = CheckboxTemplate
 
-const errorTemplate = document.createElement('template')
-errorTemplate.innerHTML = ErrorTemplate
+const fieldErrorTemplate = document.createElement('template')
+fieldErrorTemplate.innerHTML = FieldErrorTemplate
 
 export const tagName = 'ui-checkbox'
 
@@ -102,7 +102,7 @@ export class Checkbox extends HTMLElement {
     this.#label.classList.add('error')
     this.#input.setAttribute('aria-invalid', 'true')
 
-    this.#shadowRoot.appendChild(errorTemplate.content.cloneNode(true))
+    this.#shadowRoot.appendChild(fieldErrorTemplate.content.cloneNode(true))
 
     const error = this.#shadowRoot.querySelector('p')!
     error.innerText = errorMessage

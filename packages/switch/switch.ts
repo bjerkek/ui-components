@@ -1,8 +1,8 @@
 import SwitchTemplate from './switch-template.html'
-import ErrorTemplate from './error-template.html'
+import FieldErrorTemplate from './field-error-template.html'
 
-const errorTemplate = document.createElement('template')
-errorTemplate.innerHTML = ErrorTemplate
+const fieldErrorTemplate = document.createElement('template')
+fieldErrorTemplate.innerHTML = FieldErrorTemplate
 
 const template = document.createElement('template')
 template.innerHTML = SwitchTemplate
@@ -67,7 +67,7 @@ export class Switch extends HTMLElement {
     this.#input.classList.add('error')
     this.#input.setAttribute('aria-invalid', 'true')
 
-    this.#shadowRoot.appendChild(errorTemplate.content.cloneNode(true))
+    this.#shadowRoot.appendChild(fieldErrorTemplate.content.cloneNode(true))
 
     this.#shadowRoot.querySelector('p')!.innerText = errorMessage
   }

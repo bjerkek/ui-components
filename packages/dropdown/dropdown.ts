@@ -1,12 +1,12 @@
 import DropdownTemplate from './dropdown-template.html'
-import ErrorTemplate from './error-template.html'
+import FieldErrorTemplate from './field-error-template.html'
 import BaseInputStyles from './base-input-style.html'
 
 const template = document.createElement('template')
 template.innerHTML = BaseInputStyles + DropdownTemplate
 
-const errorTemplate = document.createElement('template')
-errorTemplate.innerHTML = ErrorTemplate
+const fieldErrorTemplate = document.createElement('template')
+fieldErrorTemplate.innerHTML = FieldErrorTemplate
 
 const optionTemplate = document.createElement('template')
 optionTemplate.innerHTML = `
@@ -308,7 +308,7 @@ export class Dropdown extends HTMLElement {
     this.#input.classList.add('error')
     this.#input.setAttribute('aria-invalid', 'true')
 
-    this.#shadowRoot.appendChild(errorTemplate.content.cloneNode(true))
+    this.#shadowRoot.appendChild(fieldErrorTemplate.content.cloneNode(true))
 
     const error = this.#shadowRoot.querySelector('p')!
     error.innerText = errorMessage

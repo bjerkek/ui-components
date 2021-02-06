@@ -1,12 +1,12 @@
 import DateInputTemplate from './date-input-template.html'
-import ErrorTemplate from './error-template.html'
+import FieldErrorTemplate from './field-error-template.html'
 import BaseInputStyles from './base-input-style.html'
 
 const template = document.createElement('template')
 template.innerHTML = BaseInputStyles + DateInputTemplate
 
-const errorTemplate = document.createElement('template')
-errorTemplate.innerHTML = ErrorTemplate
+const fieldErrorTemplate = document.createElement('template')
+fieldErrorTemplate.innerHTML = FieldErrorTemplate
 
 export const tagName = 'ui-date-input'
 
@@ -331,7 +331,7 @@ export class DateInput extends HTMLElement {
     this.#inputContainer.classList.add('error')
     this.#inputContainer.setAttribute('aria-invalid', 'true')
 
-    this.#shadowRoot.appendChild(errorTemplate.content.cloneNode(true))
+    this.#shadowRoot.appendChild(fieldErrorTemplate.content.cloneNode(true))
 
     const error = this.#shadowRoot.querySelector('#errorContainer')! as HTMLElement
     error.innerText = errorMessage

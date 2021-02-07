@@ -14,9 +14,10 @@ npm install --save @ui-components/switch
 
 ## Props and methods
 
-| Props        | Observable         | Default | Description                                                                                   |
-| ------------ | ------------------ | ------- | --------------------------------------------------------------------------------------------- |
-| errormessage | :heavy_check_mark: |         | Adds a red border on input if set and show the error message below. Also handles aria-invalid |
+| Props             | Observable         | Default | Description                                                                                   |
+| ----------------- | ------------------ | ------- | --------------------------------------------------------------------------------------------- |
+| errormessage      | :heavy_check_mark: |         | Adds a red border on input if set and show the error message below. Also handles aria-invalid |
+| data-aria-invalid | :heavy_check_mark: |         | Adds aria-labelledby attribute. Not needed when using errormessage                            |
 
 | Methods | Description                    |
 | ------- | ------------------------------ |

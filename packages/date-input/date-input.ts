@@ -110,12 +110,6 @@ export class DateInput extends HTMLElement {
     this.#overlay.removeEventListener('click', () => this.closeDatepicker())
   }
 
-  static get observedAttributes (): string[] {
-    return [
-      'errormessage'
-    ]
-  }
-
   reset (): void {
     this.#dayInput.value = ''
     this.#monthInput.value = ''
@@ -313,9 +307,21 @@ export class DateInput extends HTMLElement {
     }
   }
 
+  static get observedAttributes (): string[] {
+    return [
+      'data-aria-invalid',
+      'errormessage'
+    ]
+  }
+
   attributeChangedCallback (attrName: string, oldVal: string, newVal: string): void {
     if (newVal !== oldVal) {
       switch (attrName) {
+        case 'data-aria-invalid':
+          newVal === '' || newVal === 'true'
+            ? this.#inputContainer.setAttribute('aria-invalid', '')
+            : this.#inputContainer.removeAttribute('aria-invalid')
+          break
         case 'errormessage':
           newVal
             ? this.addError(newVal)

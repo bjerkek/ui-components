@@ -25,6 +25,7 @@ npm install --save @ui-components/dropdown
 | searchable         |                    | false   | Makes the dropdown options searchable                                                         |
 | searchablesubtitle |                    | false   | Includes the sub title in the search. Only valid when searchable.                             |
 | emptysearchtext    |                    |         | Text shown when there is no search results. Only valid when searchable.                       |
+| data-aria-invalid  | :heavy_check_mark: |         | Adds aria-labelledby attribute. Not needed when using errormessage                            |
 
 | Methods | Description                    |
 | ------- | ------------------------------ |

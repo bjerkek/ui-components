@@ -84,6 +84,7 @@ export class Textarea extends HTMLElement {
     return [
       'data-aria-label',
       'data-aria-labelledby',
+      'data-aria-invalid',
       'data-readonly',
       'data-spellcheck',
       'errormessage'
@@ -102,6 +103,11 @@ export class Textarea extends HTMLElement {
           newVal
             ? this.#textarea.setAttribute('aria-labelledby', newVal)
             : this.#textarea.removeAttribute('aria-labelledby')
+          break
+        case 'data-aria-invalid':
+          newVal === '' || newVal === 'true'
+            ? this.#textarea.setAttribute('aria-invalid', '')
+            : this.#textarea.removeAttribute('aria-invalid')
           break
         case 'data-readonly':
           newVal === '' || newVal === 'true'

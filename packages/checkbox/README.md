@@ -21,6 +21,7 @@ npm install --save @ui-components/checkbox
 | inline               |                    | false   |                                                                                               |
 | data-aria-label      | :heavy_check_mark: |         | Adds aria-label attribute                                                                     |
 | data-aria-labelledby | :heavy_check_mark: |         | Adds aria-labelledby attribute                                                                |
+| data-aria-invalid    | :heavy_check_mark: |         | Adds aria-labelledby attribute. Not needed when using errormessage                            |
 
 | Methods | Description           |
 | ------- | --------------------- |

@@ -230,12 +230,20 @@ export class Dropdown extends HTMLElement {
   }
 
   static get observedAttributes (): string[] {
-    return ['errormessage']
+    return [
+      'data-aria-invalid',
+      'errormessage'
+    ]
   }
 
   attributeChangedCallback (attrName: string, oldVal: string, newVal: string): void {
     if (newVal !== oldVal) {
       switch (attrName) {
+        case 'data-aria-invalid':
+          newVal === '' || newVal === 'true'
+            ? this.#input.setAttribute('aria-invalid', '')
+            : this.#input.removeAttribute('aria-invalid')
+          break
         case 'errormessage':
           newVal
             ? this.addError(newVal)

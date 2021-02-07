@@ -125,6 +125,7 @@ export class AmountInput extends HTMLElement {
     return [
       'data-aria-label',
       'data-aria-labelledby',
+      'data-aria-invalid',
       'data-placeholder',
       'data-autocomplete',
       'data-maxlength',
@@ -148,6 +149,11 @@ export class AmountInput extends HTMLElement {
           newVal
             ? this.#input.setAttribute('aria-labelledby', newVal)
             : this.#input.removeAttribute('aria-labelledby')
+          break
+        case 'data-aria-invalid':
+          newVal === '' || newVal === 'true'
+            ? this.#input.setAttribute('aria-invalid', '')
+            : this.#input.removeAttribute('aria-invalid')
           break
         case 'data-placeholder':
           newVal

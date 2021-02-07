@@ -17,15 +17,17 @@ npm install --save @ui-components/dropdown
 
 ## Props and methods ui-dropdown
 
-| Props              | Observable         | Default | Description                                                                                   |
-| ------------------ | ------------------ | ------- | --------------------------------------------------------------------------------------------- |
-| data-id            |                    |         | Adds id attribute to the input field.                                                         |
-| errormessage       | :heavy_check_mark: |         | Adds a red border on input if set and show the error message below. Also handles aria-invalid |
-| placeholder        | :heavy_check_mark: |         |                                                                                               |
-| searchable         |                    | false   | Makes the dropdown options searchable                                                         |
-| searchablesubtitle |                    | false   | Includes the sub title in the search. Only valid when searchable.                             |
-| emptysearchtext    |                    |         | Text shown when there is no search results. Only valid when searchable.                       |
-| data-aria-invalid  | :heavy_check_mark: |         | Adds aria-labelledby attribute. Not needed when using errormessage                            |
+| Props                | Observable         | Default | Description                                                                                   |
+| -------------------- | ------------------ | ------- | --------------------------------------------------------------------------------------------- |
+| data-id              |                    |         | Adds id attribute to the input field.                                                         |
+| errormessage         | :heavy_check_mark: |         | Adds a red border on input if set and show the error message below. Also handles aria-invalid |
+| placeholder          | :heavy_check_mark: |         |                                                                                               |
+| searchable           |                    | false   | Makes the dropdown options searchable                                                         |
+| searchablesubtitle   |                    | false   | Includes the sub title in the search. Only valid when searchable.                             |
+| emptysearchtext      |                    |         | Text shown when there is no search results. Only valid when searchable.                       |
+| data-aria-label      | :heavy_check_mark: |         | Adds aria-label attribute                                                                     |
+| data-aria-labelledby | :heavy_check_mark: |         | Adds aria-labelledby attribute                                                                |
+| data-aria-invalid    | :heavy_check_mark: |         | Adds aria-labelledby attribute. Not needed when using errormessage                            |
 
 | Methods | Description                    |
 | ------- | ------------------------------ |

@@ -136,7 +136,6 @@ export class AmountInput extends HTMLElement {
     ]
   }
 
-  // TODO: aria-invalid
   attributeChangedCallback (attrName: string, oldVal: string, newVal: string): void {
     if (newVal !== oldVal) {
       switch (attrName) {

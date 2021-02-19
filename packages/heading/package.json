@@ -1,0 +1,19 @@
+{
+  "name": "@ui-components/heading",
+  "version": "0.0.1",
+  "description": "Heading as web component",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjerkek/ui-components/packages/heading"
+  },
+  "keywords": [
+    "ui-components/heading",
+    "web-components",
+    "heading"
+  ],
+  "author": "Bjerkek AS",
+  "license": "MIT"
+}

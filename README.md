@@ -45,3 +45,5 @@ UI components as Web Components
 [@ui-components/radio-button](/packages/radio-button/)
 
 [@ui-components/field-error](/packages/field-error/)
+
+[@ui-components/heading](/packages/heading/)

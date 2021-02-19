@@ -10,6 +10,9 @@ describe('Date input', () => {
 
   beforeAll(() => {
     window.customElements.define(tagName, DateInput)
+  })
+
+  beforeEach(() => {
     dateInputEl = document.createElement(tagName)
     document.body.appendChild(dateInputEl)
 

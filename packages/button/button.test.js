@@ -1,4 +1,4 @@
-import { within } from '@testing-library/dom'
+import { within, fireEvent } from '@testing-library/dom'
 import { Button, tagName } from './button'
 
 describe('Button', () => {
@@ -7,10 +7,12 @@ describe('Button', () => {
 
   beforeAll(() => {
     window.customElements.define(tagName, Button)
+  })
+
+  beforeEach(() => {
     buttonEl = document.createElement(tagName)
     buttonEl.innerHTML = 'My button'
     document.body.appendChild(buttonEl)
-
     const { getByTestId } = within(buttonEl.shadowRoot)
     button = getByTestId('button')
   })
@@ -42,7 +44,13 @@ describe('Button', () => {
   })
 
   it('should disable buttons when disabled attribute is set', () => {
-    buttonEl.setAttribute('disabled', '')
+    buttonEl.setAttribute('data-disabled', '')
     expect(button.disabled).toBeTruthy()
+  })
+
+  it('should emit a click event when clicked', () => {
+    const handleButtonClick = jest.spyOn(Button.prototype, 'handleButtonClick')
+    fireEvent.click(button)
+    expect(handleButtonClick).toHaveBeenCalledTimes(1)
   })
 })

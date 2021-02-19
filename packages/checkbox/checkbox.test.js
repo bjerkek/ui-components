@@ -8,12 +8,11 @@ describe('Checkbox', () => {
 
   beforeAll(() => {
     window.customElements.define(tagName, Checkbox)
-    checkboxEl = document.createElement(tagName)
   })
 
   beforeEach(() => {
+    checkboxEl = document.createElement(tagName)
     document.body.appendChild(checkboxEl)
-
     const { getByTestId } = within(checkboxEl.shadowRoot)
     input = getByTestId('checkbox')
   })

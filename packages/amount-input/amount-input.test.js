@@ -8,6 +8,9 @@ describe('Amount input', () => {
 
   beforeAll(() => {
     window.customElements.define(tagName, AmountInput)
+  })
+
+  beforeEach(() => {
     amountInputEl = document.createElement(tagName)
     amountInputEl.setAttribute('allowdecimals', '')
     document.body.appendChild(amountInputEl)

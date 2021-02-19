@@ -19,12 +19,12 @@ npm install --save @ui-components/textarea
 | data-id           |                    |         | Adds id attribute to the input field.                                                         |
 | errormessage      | :heavy_check_mark: |         | Adds a red border on input if set and show the error message below. Also handles aria-invalid |
 | defaultvalue      |                    |         | Sets the initial value                                                                        |
-| readonly          | true               |         |                                                                                               |
-| spellcheck        | true               |         |                                                                                               |
-| autocomplete      | true               |         |                                                                                               |
-| maxlength         | true               |         | Shows a counter of numbers of letters left                                                    |
-| arialabel         | true               |         | Adds aria-label attribute                                                                     |
-| arialabelledby    | true               |         | Adds aria-labelledby attribute                                                                |
+| readonly          | :heavy_check_mark:               |         |                                                                                               |
+| spellcheck        | :heavy_check_mark:               |         |                                                                                               |
+| autocomplete      | :heavy_check_mark:               |         |                                                                                               |
+| maxlength         | :heavy_check_mark:               |         | Shows a counter of numbers of letters left                                                    |
+| arialabel         | :heavy_check_mark:               |         | Adds aria-label attribute                                                                     |
+| arialabelledby    | :heavy_check_mark:               |         | Adds aria-labelledby attribute                                                                |
 | data-aria-invalid | :heavy_check_mark: |         | Adds aria-labelledby attribute. Not needed when using errormessage                            |
 
 | Methods | Description                    |

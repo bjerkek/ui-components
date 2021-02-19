@@ -8,11 +8,11 @@
     "strict": true,
     // "esModuleInterop": false,
     // "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "sourceMap": false,
-    "inlineSources": false
+    // "allowSyntheticDefaultImports": true,
+    // "experimentalDecorators": true,
+    // "importHelpers": true,
+    // "sourceMap": false,
+    // "inlineSources": false
   },
   "include": ["**/*.ts"]
 }

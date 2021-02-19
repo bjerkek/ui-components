@@ -7,7 +7,7 @@ const getTemplate = (type: string): HTMLTemplateElement => {
   if (type === 'h4') fontSize = '1.8'
   if (type === 'h5') fontSize = '1.4'
   if (type === 'h6') fontSize = '1'
-  
+
   template.innerHTML = `
   <style>
     :host {
@@ -23,7 +23,6 @@ const getTemplate = (type: string): HTMLTemplateElement => {
   return template
 }
 
-
 class Heading extends HTMLElement {
   #shadowRoot: ShadowRoot
 
@@ -37,41 +36,41 @@ class Heading extends HTMLElement {
 export const tagName1 = 'ui-heading1'
 export class Heading1 extends Heading {
   constructor () {
-    super('h1');
+    super('h1')
   }
 }
 
 export const tagName2 = 'ui-heading2'
 export class Heading2 extends Heading {
   constructor () {
-    super('h2');
+    super('h2')
   }
 }
 
 export const tagName3 = 'ui-heading3'
 export class Heading3 extends Heading {
   constructor () {
-    super('h3');
+    super('h3')
   }
 }
 
 export const tagName4 = 'ui-heading4'
 export class Heading4 extends Heading {
   constructor () {
-    super('h4');
+    super('h4')
   }
 }
 
 export const tagName5 = 'ui-heading5'
 export class Heading5 extends Heading {
   constructor () {
-    super('h5');
+    super('h5')
   }
 }
 
 export const tagName6 = 'ui-heading6'
 export class Heading6 extends Heading {
   constructor () {
-    super('h6');
+    super('h6')
   }
 }

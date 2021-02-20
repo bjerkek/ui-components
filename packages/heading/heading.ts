@@ -12,8 +12,10 @@ const getTemplate = (type: string): HTMLTemplateElement => {
   <style>
     :host {
       all: initial;
+      display: block;
     }
     .heading {
+      font-family: var(--ui-font-regular);
       color: var(--ui-heading);
       margin: 0 0 1rem 0;
       font-size: ${fontSize}rem;

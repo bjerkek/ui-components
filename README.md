@@ -47,3 +47,5 @@ UI components as Web Components
 [@ui-components/field-error](/packages/field-error/)
 
 [@ui-components/heading](/packages/heading/)
+
+[@ui-components/text](/packages/text/)

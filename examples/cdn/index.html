@@ -14,6 +14,7 @@
   --ui-background: #FFF;
   --ui-heading: #002776;
   --ui-text: #353535;
+  --ui-text-light: #676767;
 
   --ui-dark-primary: #2364D2;
   --ui-dark-error: #bf303e;
@@ -40,7 +41,19 @@ input {
   <ui-heading4>Heading 4</ui-heading4>
   <ui-heading5>Heading 5</ui-heading5>
   <ui-heading6>Heading 6</ui-heading6>
+
+  <ui-paragraph>But I've never been to the moon! No! I want to live! There are still too many things I don't own! Well, let's just dump it in the sewer and say we delivered it. So, how 'bout them Knicks? A true inspiration for the children.</ui-paragraph>
+  <ui-emphasized-text>Dette bør utheves</ui-emphasized-text>
+  <ui-strong-text>Dette er en sterk type</ui-strong-text>
+  <ui-small-text>Dette er en liten tekst</ui-small-text>
+  <ui-micro-text>Dette er den minste teksten vi har</ui-micro-text>
+
+  <ui-link-text data-href="http://www.vg.no">Link</ui-link-text>
+  <ui-link-text data-href="#">Link</ui-link-text>
+  <ui-link-text>Link</ui-link-text>
   
+  <ui-paragraph>But I've never been to  <ui-emphasized-text>the moon!</ui-emphasized-text> No! I want to live! There are still too many things I don't own! <ui-strong-text>Well</ui-strong-text>, let's just dump it in the sewer and say we delivered it. So, how 'bout them Knicks? A true inspiration for the children.</ui-paragraph>
+
   <ui-radio-group name="my-name-1" errormessage="This is an error" inline>
     <ui-radio-button value="one">Number one</ui-radio-button>
     <ui-radio-button value="two">Number two</ui-radio-button>
@@ -87,6 +100,7 @@ input {
   <script src="../../packages/dropdown/dist/bundle.umd.js"></script>
   <script src="../../packages/field-error/dist/bundle.umd.js"></script>
   <script src="../../packages/heading/dist/bundle.umd.js"></script>
+  <script src="../../packages/text/dist/bundle.umd.js"></script>
   
 </body>
 </html>

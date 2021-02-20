@@ -1,0 +1,19 @@
+{
+  "name": "@ui-components/text",
+  "version": "0.0.1",
+  "description": "Text as web component",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjerkek/ui-components/packages/text"
+  },
+  "keywords": [
+    "ui-components/text",
+    "web-components",
+    "text"
+  ],
+  "author": "Bjerkek AS",
+  "license": "MIT"
+}

@@ -9,6 +9,11 @@ template.innerHTML = `
       font-family: var(--ui-font-regular);
       color: var(--ui-text);
     }
+    @media (prefers-color-scheme: dark) {
+      strong {
+        color: var(--ui-dark-text);
+      }
+    }
   </style>
   <strong>
     <slot></slot>

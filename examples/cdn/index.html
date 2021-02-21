@@ -14,20 +14,28 @@
   --ui-background: #FFF;
   --ui-heading: #002776;
   --ui-text: #353535;
-  --ui-text-light: #676767;
+  --ui-text-secondary: #676767;
 
   --ui-dark-primary: #2364D2;
   --ui-dark-error: #bf303e;
   --ui-dark-focus: #a1dfff;
   --ui-dark-border: #ced6e0;
   --ui-dark-background: #2d3242;
+  --ui-dark-heading: #FFF;
   --ui-dark-text: #FFF;
+  --ui-dark-text-secondary: #676767;
+
   --ui-font-monospace: 'Courier New', Courier, monospace;
   --ui-font-regular: Arial, Helvetica, sans-serif;
 }
 
 html, body {
   font-size: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: black;
+  }
 }
 input {
   background-color: #bf303e;

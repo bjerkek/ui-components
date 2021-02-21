@@ -11,6 +11,11 @@ template.innerHTML = `
       line-height: 1.5rem;
       margin: 0 0 1rem 0;
     }
+    @media (prefers-color-scheme: dark) {
+      p {
+        color: var(--ui-dark-text);
+      }
+    }
   </style>
   <p>
     <slot></slot>

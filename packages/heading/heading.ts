@@ -20,6 +20,11 @@ const getTemplate = (type: string): HTMLTemplateElement => {
       margin: 0 0 1rem 0;
       font-size: ${fontSize}rem;
     }
+    @media (prefers-color-scheme: dark) {
+      .heading {
+        color: var(--ui-dark-heading);
+      }
+    }
   </style>
   <${type} class="heading"><slot></slot></${type}>`
   return template

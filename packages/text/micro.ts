@@ -8,7 +8,12 @@ template.innerHTML = `
     span {
       font-size: 0.8rem;
       font-family: var(--ui-font-regular);
-      color: var(--ui-text-light);
+      color: var(--ui-text-secondary);
+    }
+    @media (prefers-color-scheme: dark) {
+      span {
+        color: var(--ui-dark-text-secondary);
+      }
     }
   </style>
   <span>

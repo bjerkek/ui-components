@@ -5,9 +5,16 @@ template.innerHTML = `
       all: initial;
       display: inline-block;
     }
+    
     em {
       font-family: var(--ui-font-regular);
       color: var(--ui-text);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      em {
+        color: var(--ui-dark-text);
+      }
     }
   </style>
   <em>

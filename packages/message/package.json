@@ -1,0 +1,19 @@
+{
+  "name": "@ui-components/message",
+  "version": "0.0.1",
+  "description": "Message as web component",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjerkek/ui-components/packages/message"
+  },
+  "keywords": [
+    "ui-components/message",
+    "web-components",
+    "message"
+  ],
+  "author": "Bjerkek AS",
+  "license": "MIT"
+}

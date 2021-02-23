@@ -1,0 +1,145 @@
+<style>
+  :host {
+    all: initial;
+    display: block;
+    font-family: var(--ui-font-regular);
+    line-height: 1.5;
+  }
+
+  slot {
+    display: block;
+  }
+
+  .message {
+    position: relative;
+    padding: 1rem 3rem 1rem 1rem;
+    border-radius: .5rem;
+    display: flex;
+    border-bottom: 0.2rem solid black;
+  }
+
+  .success {
+    background-color: #f1f8f5;
+    border-bottom-color: #008A00;
+  }
+
+  .info {
+    background-color: #EFF8FC;
+    border-bottom-color: var(--ui-primary);
+  }
+
+  .critical {
+    background-color: #fff4f4;
+    border-bottom-color: var(--ui-error);
+  }
+
+  .icon {
+    margin-right: 1rem;
+  }
+
+  .icon svg {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+  }
+
+  .actions {
+    padding-top: 1rem;
+    font-size: 0;
+  }
+
+  .primary, .secondary {
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    color: var(--ui-text);
+    font-size: 1rem;
+    font-family: var(--ui-font-regular);
+    white-space: nowrap;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .primary {
+    border-radius: 0.2rem;
+  }
+
+  .secondary {
+    border: 0.1rem solid transparent;
+    text-decoration: underline;
+  }
+
+  .primary:hover {
+    filter: brightness(90%);
+  }
+
+  .info .primary {
+    border: 0.1rem solid var(--ui-primary);    
+  }
+
+  .info .primary:hover {
+    background-color: #EFF8FC; 
+  }
+
+  .success .primary {
+    border: 0.1rem solid #008A00;
+  }
+
+  .success .primary:hover {
+    background-color: #f1f8f5;
+  }
+
+  .critical .primary {
+    border: 0.1rem solid var(--ui-error);
+  }
+
+  .critical .primary:hover {
+    background-color: #fff4f4;
+  }
+
+  .dismiss {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    margin: -1rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dismiss svg {
+    height: 1rem;
+    width: 1rem;
+  }
+</style>
+
+<div class="message" role="alert">
+  <div class="icon"></div>
+  <div class="content">
+    <p class="title"></p>
+    <slot></slot>
+    <div class="actions">
+      <button class="primary"></button>
+      <button class="secondary"></button>
+    </div>
+  </div>
+  <button class="dismiss" aria-label="Close">
+    <svg
+      width="308"
+      height="308"
+      viewBox="0 0 308 308"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      focusable="false"
+    >
+      <line x1="293.142" y1="14.1421" x2="14.1421" y2="293.142" stroke="#353535" stroke-width="40" />
+      <line x1="14.1421" y1="14.8579" x2="293.142" y2="293.858" stroke="#353535" stroke-width="40" />
+    </svg>
+  </button>
+</div>

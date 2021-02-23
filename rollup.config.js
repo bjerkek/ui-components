@@ -47,7 +47,7 @@ export default {
       rootMode: 'upward'
     }),
     string({
-      include: '**/*.html'
+      include: ['**/*.html', '**/*.svg']
     }),
     production && terser(),
     bundleSize()
